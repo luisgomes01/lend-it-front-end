@@ -1,9 +1,9 @@
-import "./Welcome.css";
-
+import "./WelcomePage.css";
+import lendit from "../../img/lendit.png";
 export default function Welcome() {
   return (
     <main>
-      <div className="nunca-esquece">
+      <section className="nunca-esquece">
         <div className="title">
           <p>Aquele que nunca esquece!</p>
         </div>
@@ -15,7 +15,12 @@ export default function Welcome() {
             </a>
           </div>
         </div>
-      </div>
+      </section>
+      <section className="sobre">
+        <img src={lendit} />
+        <h2>CONHECENDO O LEND.IT</h2>
+        <img src={lendit} />
+      </section>
     </main>
   );
 }

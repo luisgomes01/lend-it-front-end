@@ -1,6 +1,6 @@
 import lendit from "../../img/lendit.png";
 import logo from "../../img/logo.png";
-import "./menu.css";
+import "./Menu.css";
 
 export default function Menu() {
   return (
