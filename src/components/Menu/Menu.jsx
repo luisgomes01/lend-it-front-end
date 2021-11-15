@@ -13,19 +13,16 @@ export default function Menu() {
         <div className="nav">
           <ul>
             <li>
-              <a href="#">Início</a>
+              <a href="#home">Início</a>
             </li>
             <li>
-              <a href="#">Sobre</a>
+              <a href="#sobre">Sobre</a>
             </li>
             <li>
-              <a href="#">Contato</a>
+              <a href="/register">Registro</a>
             </li>
             <li>
-              <a href="#">Registro</a>
-            </li>
-            <li>
-              <a href="#">Login</a>
+              <a href="/login">Login</a>
             </li>
           </ul>
         </div>
