@@ -22,14 +22,13 @@ span, a{
 .title-page h1{
     color: #504747;
     font-size: 2.5rem;
-    margin: 25px;
 }
 
 .title-page p{
     margin-bottom: 15px;
 }
 
-input{
+.inputs input{
     width: 85%;
     border-radius: 6px;
     border: solid 3px #c4c4c4;

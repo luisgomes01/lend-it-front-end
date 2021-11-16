@@ -7,7 +7,7 @@ export default function RegisterPage() {
   return (
     <main>
       <div className="register-page">
-        <div className="title-page">
+        <div className="title-page margin">
           <h1>
             Bem-vindo ao <span> LEND.IT </span>
           </h1>

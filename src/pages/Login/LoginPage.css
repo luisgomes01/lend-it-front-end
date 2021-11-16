@@ -7,6 +7,10 @@
     max-width: 500px;
 }
 
+.title-page h1{
+    margin: 2rem 0;
+}
+
 .inputs input{
     height: 3rem;
 }
@@ -24,3 +28,5 @@
 p.redirect{
     margin: 2.5rem 0;
 }
+
+/* Modal */
