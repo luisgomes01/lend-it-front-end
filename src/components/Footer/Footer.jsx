@@ -1,9 +1,9 @@
-import "./Footer.css";
+import {Container} from "./Footer.js";
 
 export default function Footer() {
   return (
-    <footer>
+    <Container>
       <p> @2021 Copyright – LEND.IT – All rights reserved </p>
-    </footer>
+    </Container>
   );
 }

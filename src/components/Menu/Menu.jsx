@@ -1,10 +1,11 @@
 import lendit from "../../img/lendit.png";
 import logo from "../../img/logo.png";
-import "./Menu.css";
+
+import { Container } from "./Menu.js";
 
 export default function Menu() {
   return (
-    <header>
+    <Container>
       <div className="menu">
         <div className="app-intro">
           <img className="logo-img" src={lendit} alt="Stickman LEND.IT"/>
@@ -27,6 +28,6 @@ export default function Menu() {
           </ul>
         </div>
       </div>
-    </header>
+      </Container>
   );
 }

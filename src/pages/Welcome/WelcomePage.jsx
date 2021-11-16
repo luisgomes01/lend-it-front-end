@@ -1,8 +1,8 @@
-import "./WelcomePage.css";
+import {WelcomePageStyle} from "./WelcomePage.js";
 import sobre from "../../img/sobre.png";
 export default function Welcome() {
   return (
-    <main id="home">
+    <WelcomePageStyle id="home">
       <section className="nunca-esquece">
         <div className="title">
           <p>Aquele que nunca esquece!</p>
@@ -31,18 +31,17 @@ export default function Welcome() {
               </p>
 
               <p>
-                Não somos um sistema de cobranças mas sim um sistema de
-                auto-organização, quando se trata de algo que foi devolvido ou
-                não. Perfeito para lembrar você daqueles "amigos" que nunca
-                devolvem as coisas que foram emprestadas.
+                Somos um sistema de auto-organização, quando se trata de algo
+                que foi devolvido ou não. Perfeito para lembrar você daqueles
+                "amigos" que nunca devolvem as coisas que foram emprestadas.
               </p>
             </div>
           </div>
           <div className="right-content">
-            <img src={sobre} alt="People talking with each other"/>
+            <img src={sobre} alt="People talking with each other" width="550px"/>
           </div>
         </div>
       </section>
-    </main>
+    </WelcomePageStyle>
   );
 }

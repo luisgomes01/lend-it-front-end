@@ -1,13 +1,14 @@
-import "./RegisterPage.css";
-import "../LoginAndRegisterPages.css";
+import {RegisterPageStyle} from "./RegisterPage";
+import {PageStyle} from "../LoginAndRegisterPages";
 
 import ButtonSubmit from "../../components/ButtonSubmit/ButtonSubmit";
 
 export default function RegisterPage() {
   return (
-    <main>
-      <div className="register-page">
-        <div className="title-page margin">
+    <PageStyle>
+      <RegisterPageStyle>
+      <div className="page">
+        <div className="title-page">
           <h1>
             Bem-vindo ao <span> LEND.IT </span>
           </h1>
@@ -32,6 +33,7 @@ export default function RegisterPage() {
           Já possui uma conta? <a href="/"> Entre com seu login </a>.
         </p>
       </div>
-    </main>
+      </RegisterPageStyle>
+    </PageStyle>
   );
 }

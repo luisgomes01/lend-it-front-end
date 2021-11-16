@@ -1,5 +1,5 @@
-import { useRef, useState } from "react"
-import './ForgotPasswordModal.css'
+import { useState, useRef } from "react"
+import { Container } from './ForgotPasswordModal'
 
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit";
 
@@ -8,11 +8,19 @@ function ForgotPasswordModal() {
     const openModal = () => {
         setShowModal(true);
     };
+
+    // Fecha o modal se usuário clicar fora dele
+    const modalRef = useRef();
+    const closeModal = (e) => {
+        if (e.target === modalRef.current) {
+            setShowModal(false);
+        }
+    }
+    
     return (
-        
-        <> 
+        <Container> 
         { showModal && (
-            <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal" tabindex="-1" role="dialog" ref={modalRef} onClick={closeModal}>
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5> Esqueceu sua senha? </h5>
@@ -44,7 +52,7 @@ function ForgotPasswordModal() {
             <button type="button" className="esquecer-senha" onClick={openModal}>
                 Esqueceu a senha?
             </button>
-        </>
+        </Container>
     );
 }
 
