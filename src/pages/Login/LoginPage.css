@@ -1,1 +1,87 @@
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+span, a{
+    color: #00B0F0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.login-page{
+    width: 100%;
+    max-width: 500px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.title-login-page h1,
+.entrar{
+    font-family: "Titillium Web", sans-serif;
+}
+
+.title-login-page h1{
+    color: #504747;
+    font-size: 2.5rem;
+    margin: 25px;
+}
+
+.title-login-page p{
+    margin-bottom: 15px;
+}
+
+.login input{
+    width: 85%;
+    border-radius: 6px;
+    border: solid 3px #c4c4c4;
+    padding: 0.2rem 1rem;
+    height: 50px;
+    font-size: 16px;
+}
+
+input:focus{
+    border-color: #00B0F0;
+    outline: 0;
+}
+
+.login input+input{
+    margin-top: 0.9rem;
+}
+
+.container{
+    margin: 0.6rem 2rem;
+}
+
+.container .esquecer-senha{
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.container .entrar{
+    border: none;
+    border-radius: 6px;
+    background-color: #00B0F0;
+    color: #ffff;
+    font-weight: 800px;
+    padding: 14px 38px;
+}
+
+.container .entrar:hover{
+    background-color: #00AFFF;
+    transition: .2s ease-in-out;
+}
+
+p.register{
+    margin: 2.5rem 0;
+}
 
