@@ -2,6 +2,7 @@ import Menu from './components/Menu/Menu';
 import Footer from './components/Footer/Footer';
 import WelcomePage from '../src/pages/Welcome/WelcomePage';
 import LoginPage from './pages/Login/LoginPage';
+import RegisterPage from './pages/Register/RegisterPage';
 // import {useState, useEffect} from 'react'
 import "./global.css"
 function App() {
@@ -9,8 +10,9 @@ function App() {
   return (
     <div className="App">
       <Menu />
-      <LoginPage />
       {/* <WelcomePage /> */}
+      <LoginPage />
+      <RegisterPage />
       <Footer />
     </div>
   );
