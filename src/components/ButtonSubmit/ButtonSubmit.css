@@ -1,0 +1,13 @@
+.button-submit{
+    border: none;
+    border-radius: 6px;
+    background-color: #00B0F0;
+    color: #ffff;
+    font-weight: 800px;
+    padding: 14px 38px;
+}
+
+.button-submit:hover{
+    background-color: #00AFFF;
+    transition: .2s ease-in-out;
+}
