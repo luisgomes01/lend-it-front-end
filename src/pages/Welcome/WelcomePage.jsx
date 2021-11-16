@@ -39,7 +39,7 @@ export default function Welcome() {
             </div>
           </div>
           <div className="right-content">
-            <img src={sobre} />
+            <img src={sobre} alt="People talking with each other"/>
           </div>
         </div>
       </section>
