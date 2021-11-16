@@ -1,0 +1,91 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nunca-esquece {
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5.7rem;
+  background-image: url("../../img/welcomeimg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 65rem;
+}
+
+.title p {
+  font-family: "Antic Slab", serif;
+  font-size: 3rem;
+}
+
+.acessar {
+  flex-basis: 50%;
+}
+
+.acessar p {
+  font-size: 5rem;
+  font-family: "Antic Slab", serif;
+  text-align: center;
+}
+
+.organize-se {
+  display: flex;
+  justify-content: center;
+}
+
+.organize-se button {
+  width: 10rem;
+  height: 4rem;
+  padding: 0 0.7rem;
+  margin-top: 1rem;
+  background: #00b0f0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 5px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.sobre {
+  background: #fff;
+  width: 100%;
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left-content {
+  width: 50%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.about-text {
+  text-align: justify;
+  font-size: 1.8rem;
+  padding-left: 5rem;
+}
+
+.about-text p {
+  margin-top: 4rem;
+}
+
+.right-content {
+  width: 50%;
+  margin: 5rem 0 0 5rem;
+}

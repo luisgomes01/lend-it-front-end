@@ -6,7 +6,7 @@ footer {
   width: 100%;
   height: 4rem;
   background-color: #095194;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   /* olá Luís, Adeus */
 }
