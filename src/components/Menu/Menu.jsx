@@ -7,8 +7,8 @@ export default function Menu() {
     <header>
       <div className="menu">
         <div className="app-intro">
-          <img className="logo-img" src={lendit} />
-          <img className="app-name" src={logo} />
+          <img className="logo-img" src={lendit} alt="Stickman LEND.IT"/>
+          <img className="app-name" src={logo} alt="Logo LENDIT"/>
         </div>
         <div className="nav">
           <ul>
