@@ -1,8 +1,8 @@
-import Menu from './components/Menu/Menu';
-import Footer from './components/Footer/Footer';
-import WelcomePage from '../src/pages/Welcome/WelcomePage';
-import LoginPage from './pages/Login/LoginPage';
-import RegisterPage from './pages/Register/RegisterPage';
+import Menu from './components/Menu/Menu.jsx';
+import Footer from './components/Footer/Footer.jsx';
+import WelcomePage from '../src/pages/Welcome/WelcomePage.jsx';
+import LoginPage from './pages/Login/LoginPage.jsx';
+import RegisterPage from './pages/Register/RegisterPage.jsx';
 // import {useState, useEffect} from 'react'
 import "./global.css"
 

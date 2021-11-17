@@ -77,10 +77,9 @@ export const WelcomePageStyle = styled.main`
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 80%;
 
       .left-content {
-        margin-top: 1.8rem;
-        height: 100%;
         width: 50%;
         display: flex;
         flex-wrap: wrap;
@@ -97,7 +96,7 @@ export const WelcomePageStyle = styled.main`
             text-indent: 2rem;
             line-height: 2rem;
             +p{  
-              margin-top: 1rem;
+              margin-top: 4rem;
             }
           }
         }
