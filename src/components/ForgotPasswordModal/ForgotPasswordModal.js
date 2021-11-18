@@ -10,8 +10,10 @@ export const Container = styled.div`
     z-index: 10;
     -webkit-transition: all 0.5s 0.5s ease-in-out;
     transition: all 0.5s 0.5s ease-in-out;
+    background-color: rgba(0, 0, 0, 0.9);
 
       .modal-content {
+        margin-top: 20rem;
         padding: 10px;
         max-width: 500px;
         width: 100%;
@@ -88,5 +90,12 @@ export const Container = styled.div`
           }
         }
       }
+  }
+
+  .esquecer-senha{
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #00B0F0;
   } 
 `;

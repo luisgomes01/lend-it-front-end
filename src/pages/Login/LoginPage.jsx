@@ -21,8 +21,8 @@ export default function LoginPage() {
             </div>
             <form>
               <div className="inputs">
-                <input type="text" placeholder="E-mail" id="E-mail" />
-                <input type="text" placeholder="Senha" id="Senha" />
+                <input type="text" placeholder="E-mail" id="E-mail" required />
+                <input type="text" placeholder="Senha" id="Senha" required />
               </div>
               <div className="container">
                 <ForgotPasswordModal />

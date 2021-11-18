@@ -18,17 +18,27 @@ export default function RegisterPage() {
           </div>
           <form>
             <div className="inputs">
-              <input type="text" placeholder="E-mail" id="E-mail" />
-              <input type="text" placeholder="Nome Completo" id="E-mail" />
-              <input type="text" placeholder="Senha" id="Senha" />
-              <input type="text" placeholder="Confirme sua senha" id="Senha" />
+              <input type="text" placeholder="E-mail" id="E-mail" required />
+              <input
+                type="text"
+                placeholder="Nome Completo"
+                id="E-mail"
+                required
+              />
+              <input type="text" placeholder="Senha" id="Senha" required />
+              <input
+                type="text"
+                placeholder="Confirme sua senha"
+                id="Senha"
+                required
+              />
             </div>
             <div className="criar-conta">
               <ButtonSubmit>Criar Conta</ButtonSubmit>
             </div>
           </form>
           <p className="redirect">
-            Já possui uma conta? <a href="/"> Entre com seu login </a>.
+            Já possui uma conta? <a href="/"> Logar.</a>
           </p>
         </div>
       </RegisterPageStyle>

@@ -9,24 +9,10 @@ function ForgotPasswordModal() {
     setShowModal(true);
   };
 
-  // Fecha o modal se usuário clicar fora dele
-  const modalRef = useRef();
-  const closeModal = (e) => {
-    if (e.target === modalRef.current) {
-      setShowModal(false);
-    }
-  };
-
   return (
     <Container>
       {showModal && (
-        <div
-          class="modal"
-          tabindex="-1"
-          role="dialog"
-          ref={modalRef}
-          onClick={closeModal}
-        >
+        <div class="modal" role="dialog">
           <div class="modal-content">
             <div class="modal-header">
               <h5> Esqueceu sua senha? </h5>

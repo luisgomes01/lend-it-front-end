@@ -8,12 +8,9 @@ export const LoginPageStyle = styled.div`
 
     .container{
         margin: 0.6rem 0;
-   
-        .esquecer-senha{
-            border: none;
-            background: none;
-            cursor: pointer;
-        }
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     p.redirect{
