@@ -6,6 +6,8 @@ import RegisterPage from './pages/Register/RegisterPage.jsx';
 // import {useState, useEffect} from 'react'
 import "./global.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import EmptyBorrowState from './components/EmptyState/EmptyState.jsx';
+import AddButton from './components/AddButton/AddButton.jsx';
 function App() {
 
   return (
@@ -19,6 +21,12 @@ function App() {
 
         </Routes>
       </BrowserRouter>
+      <AddButton/>
+      <EmptyBorrowState/>
+      <EmptyBorrowState/>
+      <EmptyBorrowState/>
+      <EmptyBorrowState/>
+      
        
       {/* <LoginPage /> */}
       {/* <Route path="/register" component={RegisterPage} /> */}
