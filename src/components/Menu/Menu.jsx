@@ -5,16 +5,17 @@ import { Container } from "./Menu.js";
 import RegisterPage from "../../pages/Register/RegisterPage.jsx";
 import { Link } from "react-router-dom";
 export default function Menu() {
-  document.querySelector(".inicio").addEventListener("click", function () {
-    window.scrollBy(0, -1000);
-  });
-
-  document
-    .querySelector(".sobre-lendit")
-    .addEventListener("click", function () {
-      window.scrollBy(0, 1000);
+  window.onload = function () {
+    document.querySelector(".inicio").addEventListener("click", () => {
+      window.scrollBy(0, -1000);
     });
 
+    document
+      .querySelector(".sobre-lendit")
+      .addEventListener("click", function () {
+        window.scrollBy(0, 1000);
+      });
+  };
   return (
     <Container>
       <div className="menu">
