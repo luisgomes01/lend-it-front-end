@@ -6,7 +6,7 @@ import RegisterPage from './pages/Register/RegisterPage.jsx';
 // import {useState, useEffect} from 'react'
 import "./global.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import EmptyBorrowState from './components/EmptyState/EmptyState.jsx';
+import EmptyBorrowState from './pages/EmptyState/EmptyState.jsx';
 import AddButton from './components/AddButton/AddButton.jsx';
 function App() {
 
@@ -18,14 +18,10 @@ function App() {
           <Route path="/" element={<WelcomePage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-
+          <Route path="/board" element={<EmptyBorrowState />} />
         </Routes>
       </BrowserRouter>
       <AddButton/>
-      <EmptyBorrowState/>
-      <EmptyBorrowState/>
-      <EmptyBorrowState/>
-      <EmptyBorrowState/>
       
        
       {/* <LoginPage /> */}
