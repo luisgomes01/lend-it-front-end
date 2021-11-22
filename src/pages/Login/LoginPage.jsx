@@ -19,12 +19,13 @@ export default function LoginPage() {
     e.preventDefault();
     try {
       const response = await Api.signIn({ email, password });
-      setIsLogged(true)
-      
-      if(response){
-        localStorage.setItem("@lendit/user_id", JSON.parse(response.id));
+
+      if (response.id) {
+        localStorage.setItem("user_id", response.id);
         window.location.href = "/board";
       }
+      setIsLogged(true);
+      alert("Logado com sucesso!");
     } catch (error) {
       alert("Erro ao efetuar login!");
     }
@@ -68,7 +69,8 @@ export default function LoginPage() {
               </div>
             </form>
             <p className="redirect">
-              Ainda não tem uma conta? <Link to="/register"> Registre-se </Link>.
+              Ainda não tem uma conta? <Link to="/register"> Registre-se </Link>
+              .
             </p>
           </div>
         </LoginPageStyle>
