@@ -8,11 +8,6 @@ export const Container = styled.main`
     align-items: center;
     justify-content: center;
 
-    h1{
-        font-size: 3rem;
-        margin: 1.6rem;
-    }
-
     .perfil-container{
         max-width: 400px;
         width: 100%;

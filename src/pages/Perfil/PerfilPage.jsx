@@ -1,13 +1,14 @@
 import * as Api from "../../api/edit-perfil";
 
 import { useState } from 'react';
-import {BsPencilSquare} from 'react-icons/bs'
+import {FiEdit2} from 'react-icons/fi'
 import {IoClose} from 'react-icons/io5'
 
 import perfilimg from '../../img/perfilimg.png'
 import { Container } from './PerfilPage.js'
 
 import ButtonSubmit from '../../components/ButtonSubmit/ButtonSubmit.jsx'
+import Title from "../../components/Title/Title.jsx";
 
 function Perfil() {
     const [active, setActive] = useState(false);
@@ -23,8 +24,7 @@ function Perfil() {
     const onSubmit = async (e) =>{ 
         e.preventDefault();
         try{
-            const id = JSON.parse(localStorage.getItem('@lendit/user_id'));
-                console.log(typeof id);
+            const id = localStorage.getItem('@lendit/user_id');
             if( email === undefined ){
                 const response = await Api.editName(id, name);
             } else if (name === undefined ){
@@ -38,7 +38,7 @@ function Perfil() {
 
     return ( 
     <Container>
-        <h1>PERFIL</h1>
+        <Title>PERFIL</Title>
         <div className="perfil-container">
             <div className="header-perfil-container">
                 <img src={perfilimg} alt="LEND IT IMG" />
@@ -50,7 +50,7 @@ function Perfil() {
                         <div className="edit-part-section">
                             <p> Nome: <span>Mylena Rodrigues</span></p>
                             <button type="button" onClick = {() => appear("nome")}>
-                                {((active) && (inputkey==="nome")) ? <IoClose size={20}/> : <BsPencilSquare/>}
+                                {((active) && (inputkey==="nome")) ? <IoClose size={20}/> : <FiEdit2/>}
                             </button>
                         </div>
                         <div className="input-name" 
@@ -64,7 +64,7 @@ function Perfil() {
                         <div className="edit-part-section">
                             <p>E-mail: <span> mylenawz@yahoo.com</span></p> 
                             <button type="button" onClick = {() => appear("email")}>
-                                {((active) && (inputkey==="email")) ? <IoClose size={20}/> : <BsPencilSquare/>}
+                                {((active) && (inputkey==="email")) ? <IoClose size={20}/> : <FiEdit2/>}
                             </button>
                         </div>
 
@@ -79,7 +79,7 @@ function Perfil() {
                         <div className="edit-part-section">
                             <p>Senha: <span> *******</span></p>
                             <button type="button" onClick = {() => appear("senha")}>
-                                {((active) && (inputkey==="senha")) ? <IoClose size={20}/> : <BsPencilSquare/>}
+                                {((active) && (inputkey==="senha")) ? <IoClose size={20}/> : <FiEdit2/>}
                             </button>
                         </div>
 
@@ -100,9 +100,7 @@ function Perfil() {
                     </div>
                 </form>
             </div>
-        </div>
-                
-                   
+        </div>               
     </Container> 
     );
 }

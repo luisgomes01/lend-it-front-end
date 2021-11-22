@@ -22,7 +22,7 @@ export default function LoginPage() {
       setIsLogged(true)
       
       if(response){
-        localStorage.setItem("@lendit/user_id", JSON.parse(response.id));
+        localStorage.setItem("@lendit/user_id", response.id);
         window.location.href = "/board";
       }
     } catch (error) {
