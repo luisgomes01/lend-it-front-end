@@ -1,10 +1,11 @@
 import lendit from "../../img/lendit.png";
 import logo from "../../img/logo.png";
 
-import { Container } from "./Menu.js";
-import RegisterPage from "../../pages/Register/RegisterPage.jsx";
 import { Link } from "react-router-dom";
 import { useUsers } from "../../contexts/userContext";
+
+import { Container } from "./Menu.js";
+
 export default function Menu() {
   const { isLogged, setIsLogged } = useUsers();
   window.onload = function () {
@@ -18,7 +19,8 @@ export default function Menu() {
         window.scrollBy(0, 1000);
       });
   };
-  {
+  
+
     if (isLogged) {
       return <h1>olá</h1>;
     }
@@ -53,4 +55,3 @@ export default function Menu() {
       </Container>
     );
   }
-}

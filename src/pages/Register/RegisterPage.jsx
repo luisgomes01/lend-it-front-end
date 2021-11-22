@@ -1,9 +1,41 @@
+import * as Api from "../../api/register";
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useUsers } from "../../contexts/userContext";
+
 import { RegisterPageStyle } from "./RegisterPage";
 import { PageStyle } from "../LoginAndRegisterPages";
 
 import ButtonSubmit from "../../components/ButtonSubmit/ButtonSubmit.jsx";
 
 export default function RegisterPage() {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [password_confirmation, setPasswordConfirm] = useState("");
+  const { isLogged, setIsLogged } = useUsers();
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await Api.registerAccount({
+        email,
+        name,
+        password,
+        password_confirmation,
+      });
+
+      if (response.id) {
+        localStorage.setItem("user_id", response.id);
+      }
+      window.location.href = "/login";
+      alert("Registrado com sucesso!");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <PageStyle>
       <RegisterPageStyle>
@@ -18,27 +50,45 @@ export default function RegisterPage() {
           </div>
           <form>
             <div className="inputs">
-              <input type="text" placeholder="E-mail" id="E-mail" required />
+              <input
+                type="text"
+                placeholder="E-mail"
+                id="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
               <input
                 type="text"
                 placeholder="Nome Completo"
-                id="E-mail"
+                id="Nome"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 required
               />
-              <input type="text" placeholder="Senha" id="Senha" required />
               <input
-                type="text"
+                type="password"
+                placeholder="Senha"
+                id="Senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+              <input
+                type="password"
                 placeholder="Confirme sua senha"
                 id="Senha"
+                value={password_confirmation}
+                onChange={(e) => setPasswordConfirm(e.target.value)}
                 required
               />
             </div>
             <div className="criar-conta">
-              <ButtonSubmit>Criar Conta</ButtonSubmit>
+              <ButtonSubmit submit={onSubmit}>Criar Conta</ButtonSubmit>
             </div>
           </form>
           <p className="redirect">
-            Já possui uma conta? <a href="/"> Logar.</a>
+            Já possui uma conta? <Link to="/">Logar</Link>.
           </p>
         </div>
       </RegisterPageStyle>

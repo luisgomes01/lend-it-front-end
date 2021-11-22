@@ -1,7 +1,7 @@
 import {MdClose} from 'react-icons/md'
 import ButtonSubmit from '../ButtonSubmit/ButtonSubmit.jsx'
 
-import {Container} from './AddModalLend.js'
+import {Container} from './AddModal.js'
 
 function AddModalLend({showModal, setShowModal}) {
 
@@ -15,7 +15,7 @@ function AddModalLend({showModal, setShowModal}) {
                         <button
                             type="button"
                             class="button-cancel"
-                            // data-dismiss="modal"
+                            data-dismiss="modal"
                             onClick={() => setShowModal(false)}
                             >
                                 <MdClose/>
