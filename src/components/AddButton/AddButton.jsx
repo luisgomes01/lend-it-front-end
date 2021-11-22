@@ -1,10 +1,9 @@
-import {useState, useParams} from 'react'
+import {useState} from 'react'
 import {ImPlus} from 'react-icons/im'
 
 import {Container} from './AddButton.js'
 
-import ButtonSubmit from '../ButtonSubmit/ButtonSubmit.jsx'
-import AddModalLend from '../AddModal/AddModalLend.jsx';
+import AddModal from '../AddModal/AddModal.jsx';
 
 function AddButton() {
     const [showModal, setShowModal] = useState(false);
@@ -13,7 +12,7 @@ function AddButton() {
     };
     return (
         <>
-        <AddModalLend showModal={showModal} setShowModal={setShowModal}/>
+        <AddModal showModal={showModal} setShowModal={setShowModal}/>
 
         <Container>
             <button className="add-button" onClick={openModal} style={showModal ? {display: 'none'} : {display: 'flex'}}>
