@@ -9,6 +9,7 @@ export const Container = styled.div`
         color: #ffff;
         font-weight: 800px;
         padding: 14px 38px;
+        cursor: pointer;
 
         :hover{
             background-color: #095194;
