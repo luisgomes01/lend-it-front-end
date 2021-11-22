@@ -24,12 +24,7 @@ function App() {
           <Route path="/perfil" element={<PerfilPage/>} />
         </Routes>
       </BrowserRouter>
-      <AddButton/>
-      
-       
-      {/* <LoginPage /> */}
-      {/* <Route path="/register" component={RegisterPage} /> */}
-      
+      <AddButton/>      
       <Footer />
     </div>
   );

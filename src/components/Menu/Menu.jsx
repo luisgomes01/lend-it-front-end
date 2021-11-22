@@ -8,22 +8,23 @@ import { Container } from "./Menu.js";
 
 export default function Menu() {
   const { isLogged, setIsLogged } = useUsers();
-  window.onload = function () {
-    document.querySelector(".inicio").addEventListener("click", () => {
-      window.scrollBy(0, -1000);
-    });
 
-    document
-      .querySelector(".sobre-lendit")
-      .addEventListener("click", function () {
-        window.scrollBy(0, 1000);
-      });
-  };
-  
+  function toHomeSection() {
+    window.scrollBy(0, -1000);
+  }
 
-    if (isLogged) {
-      return <h1>olá</h1>;
+  function toAboutSection() {
+    if (window.location.href !== "/") {
+      window.scrollBy(0, 1000);
     }
+  }
+
+  function logout() {
+    localStorage.removeItem("user_id");
+    setIsLogged(false);
+  }
+
+  if (isLogged) {
     return (
       <Container>
         <div className="menu">
@@ -34,20 +35,22 @@ export default function Menu() {
           <div className="nav">
             <ul>
               <li>
-                <Link to="/" className="inicio">
-                  Início
+                <Link to="/emprestei" className="emprestei">
+                  Emprestei
                 </Link>
               </li>
               <li>
-                <Link to="/" className="sobre-lendit">
-                  Sobre
+                <Link to="/emprestado" className="peguei-emprestado">
+                  Peguei emprestado
                 </Link>
               </li>
               <li>
-                <Link to="/register">Registro</Link>
+                <Link to="/profile">Perfil</Link>
               </li>
               <li>
-                <Link to="/login">Login</Link>
+                <Link to="/" onClick={logout} className="leave">
+                  Sair
+                </Link>
               </li>
             </ul>
           </div>
@@ -55,3 +58,34 @@ export default function Menu() {
       </Container>
     );
   }
+  return (
+    <Container>
+      <div className="menu">
+        <div className="app-intro">
+          <img className="logo-img" src={lendit} alt="Stickman LEND.IT" />
+          <img className="app-name" src={logo} alt="Logo LENDIT" />
+        </div>
+        <div className="nav">
+          <ul>
+            <li>
+              <Link to="/" onClick={toHomeSection} className="inicio">
+                Início
+              </Link>
+            </li>
+            <li>
+              <Link to="/" onClick={toAboutSection} className="sobre-lendit">
+                Sobre
+              </Link>
+            </li>
+            <li>
+              <Link to="/register">Registro</Link>
+            </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </Container>
+  );
+}

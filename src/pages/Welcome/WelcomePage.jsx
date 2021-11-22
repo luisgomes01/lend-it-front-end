@@ -1,9 +1,9 @@
-import {WelcomePageStyle} from "./WelcomePage.js";
+import { WelcomePageStyle } from "./WelcomePage.js";
 import sobre from "../../img/sobre.png";
 export default function Welcome() {
   return (
     <WelcomePageStyle id="home">
-      <section className="nunca-esquece">
+      <section className="nunca-esquece" id="welcome">
         <div className="title">
           <p>Aquele que nunca esquece!</p>
         </div>
@@ -16,7 +16,7 @@ export default function Welcome() {
           </div>
         </div>
       </section>
-      <section id="sobre" className="sobre">
+      <section id="sobre" className="sobre" id="about">
         <div className="title">
           <p>CONHECENDO O LEND.IT</p>
         </div>
@@ -38,7 +38,11 @@ export default function Welcome() {
             </div>
           </div>
           <div className="right-content">
-            <img src={sobre} alt="People talking with each other" width="550px"/>
+            <img
+              src={sobre}
+              alt="People talking with each other"
+              width="550px"
+            />
           </div>
         </div>
       </section>
