@@ -13,6 +13,8 @@ import EmptyBorrowState from './pages/EmptyState/EmptyState.jsx';
 import AddButton from './components/AddButton/AddButton.jsx';
 import ListLoanItemBorrow from './components/ListComponents/ListBorrow/ListLoanItemBorrow.jsx';
 import ListLateItemBorrow from './components/ListComponents/ListBorrow/ListLateItemBorrow.jsx';
+import ListLoanItemLoan from './components/ListComponents/ListLoan/ListLoanItemLoan.jsx';
+import ListLateItemLoan from './components/ListComponents/ListLoan/ListLateItemLoan.jsx';
 
 function App() {
 
@@ -33,6 +35,8 @@ function App() {
         <LateItem/> */}
         <ListLoanItemBorrow/>
         <ListLateItemBorrow/>
+        <ListLoanItemLoan/>
+
       {/* <LoanItem /> */}
     </div>
   );

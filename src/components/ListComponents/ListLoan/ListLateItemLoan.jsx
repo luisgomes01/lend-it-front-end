@@ -1,20 +1,21 @@
 import * as Api from "../../../api/list";
-import { useState } from "react";
-import LateItem from "../../LateItem/LateItem.jsx";
-import EmptyState from '../../../pages/EmptyState/EmptyState.jsx'
 
-function ListLateItemBorrow() {
+import { useState } from 'react';
+
+import LateItem from "../../LateItem/LateItem.jsx";
+import EmptyState from '../../../pages/EmptyState/EmptyState.jsx';
+
+function ListLateItem() {
     const [leans, setLeans] = useState([]);
 
     const lists = async () => {
-        const response = await Api.listBorrow();
+        const response = await Api.listLoan();
         console.log(response);
         setLeans(response);
         console.log(leans);     
     }
     const actualDate = new Date().getTime();
     console.log(actualDate)
-    
     if(leans.length === 0){
         return(
             <EmptyState/>
@@ -42,4 +43,4 @@ function ListLateItemBorrow() {
     );
 }
 
-export default ListLateItemBorrow;
+export default ListLateItem;

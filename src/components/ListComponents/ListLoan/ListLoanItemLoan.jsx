@@ -1,31 +1,30 @@
 import * as Api from "../../../api/list";
-import { useState } from "react";
-import LateItem from "../../LateItem/LateItem.jsx";
+
+import { useState } from 'react';
+
+import LoanItem from "../../LoanItem/LoanItem.jsx";
 import EmptyState from '../../../pages/EmptyState/EmptyState.jsx'
 
-function ListLateItemBorrow() {
+function ListLoanItem() {
     const [leans, setLeans] = useState([]);
 
     const lists = async () => {
-        const response = await Api.listBorrow();
+        const response = await Api.listLoan();
         console.log(response);
         setLeans(response);
-        console.log(leans);     
+        console.log(leans);
+        
     }
-    const actualDate = new Date().getTime();
-    console.log(actualDate)
-    
+
     if(leans.length === 0){
         return(
             <EmptyState/>
         )
     }
-    return (
+    return ( 
         <>
-            { leans.map(lean =>  {  
-                const dataEmprestimo = new Date(lean.data_devolucao).getTime();
-                if(actualDate > dataEmprestimo){
-                    <LateItem key={lean.id}
+        {leans.map(lean => (
+                    <LoanItem key={lean.id}
                     id={lean.id}
                     name_obj={lean.item_emprestado}
                     name_resp={lean.nome_donoObj} 
@@ -35,11 +34,14 @@ function ListLateItemBorrow() {
                     date_devolution = {lean.data_devolucao}
                     result_devolution = {lean.resultado_devolucao}
                     />
-                    }
-                })
-            }
-        </>
-    );
+                )
+            )
+        }
+            <button onClick={() => lists()}>
+                Chama a lista
+            </button>
+    </>
+     );
 }
 
-export default ListLateItemBorrow;
+export default ListLoanItem;

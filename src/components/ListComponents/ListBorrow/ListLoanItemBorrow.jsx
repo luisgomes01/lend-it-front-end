@@ -14,6 +14,12 @@ function ListLoanItemBorrow() {
         console.log(leans);
         
     }
+
+    if(leans.length === 0){
+        return(
+            <EmptyState/>
+        )
+    }
     return ( 
         <>
         {leans.map(lean => (
