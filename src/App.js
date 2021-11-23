@@ -31,13 +31,10 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-      <AddButton/>
         <LateItem/> */}
         <ListLoanItemBorrow/>
         <ListLateItemBorrow/>
         <ListLoanItemLoan/>
-
-      {/* <LoanItem /> */}
     </div>
   );
 }

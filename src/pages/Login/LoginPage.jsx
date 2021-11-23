@@ -2,7 +2,6 @@ import * as Api from "../../api/auth";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useUsers } from "../../contexts/userContext";
 
 import { LoginPageStyle } from "./LoginPage";
 import { PageStyle } from "../LoginAndRegisterPages";
@@ -13,7 +12,6 @@ import ForgotPasswordModal from "../../components/ForgotPasswordModal/ForgotPass
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setIsLogged } = useUsers();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +23,6 @@ export default function LoginPage() {
         setIsLogged(true)
         window.location.href = "/board";
       }
-      setIsLogged(true);
       alert("Logado com sucesso!");
     } catch (error) {
       alert("Erro ao efetuar login!");
