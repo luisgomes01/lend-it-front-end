@@ -9,25 +9,28 @@ import { PageStyle } from "../LoginAndRegisterPages";
 
 import ButtonSubmit from "../../components/ButtonSubmit/ButtonSubmit.jsx";
 
-
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("")
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirm] = useState("");
   const { isLogged, setIsLogged } = useUsers();
-  
+
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await Api.registerAccount({ email, name, password, password_confirmation});
-      console.log(response);
+      const response = await Api.registerAccount({
+        email,
+        name,
+        password,
+        password_confirmation,
+      });
+
       if (response.id) {
         localStorage.setItem("user_id", response.id);
       }
       window.location.href = "/login";
-      setIsLogged(true);
-      console.log(isLogged);
+      alert("Registrado com sucesso!");
     } catch (error) {
       alert(error.message);
     }
@@ -47,10 +50,14 @@ export default function RegisterPage() {
           </div>
           <form>
             <div className="inputs">
-              <input type="text" placeholder="E-mail" id="E-mail" 
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required />
+              <input
+                type="text"
+                placeholder="E-mail"
+                id="E-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
               <input
                 type="text"
                 placeholder="Nome Completo"
@@ -59,13 +66,14 @@ export default function RegisterPage() {
                 onChange={(e) => setName(e.target.value)}
                 required
               />
-              <input 
-                type="password" 
-                placeholder="Senha" 
-                id="Senha" 
+              <input
+                type="password"
+                placeholder="Senha"
+                id="Senha"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required />
+                required
+              />
               <input
                 type="password"
                 placeholder="Confirme sua senha"
