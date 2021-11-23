@@ -1,19 +1,20 @@
 import * as Api from "../../../api/list";
 
-import { useState } from 'react';
+import { useLend } from "../../../contexts/lendContext";
+import { useUsers } from "../../../contexts/userContext";
 
+import EmptyState from '../../../pages/EmptyState/EmptyState.jsx'
 import LoanItem from '../../LoanItem/LoanItem.jsx'
 
 function ListLoanItemBorrow() {
-    const [leans, setLeans] = useState([]);
+    
+    const { leans, setLeans } = useLend();
+    const { isLogged } = useUsers();
 
     const lists = async () => {
         const response = await Api.listBorrow();
-        console.log(response);
         setLeans(response);
-        console.log(leans);
-        
-    }
+        }   
 
     if(leans.length === 0){
         return(

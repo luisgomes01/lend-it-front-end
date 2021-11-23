@@ -20,7 +20,6 @@ export default function LoginPage() {
 
       if (response.id) {
         localStorage.setItem("@lendit/user_id", response.id);
-        setIsLogged(true)
         window.location.href = "/board";
       }
       alert("Logado com sucesso!");

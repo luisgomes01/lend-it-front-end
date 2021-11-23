@@ -7,7 +7,7 @@ export default function UserContextProvider({children}) {
   const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
-    setIsLogged(!!localStorage.getItem("user_id"));
+    setIsLogged(!!localStorage.getItem("@lendit/user_id"));
   }, []);
 
   return (

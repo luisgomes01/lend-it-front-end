@@ -24,12 +24,11 @@ function Perfil() {
     const onSubmit = async (e) =>{ 
         e.preventDefault();
         try{
-            const id = localStorage.getItem('@lendit/user_id');
-            if( email === undefined ){
-                const response = await Api.editName(id, name);
-            } else if (name === undefined ){
-                const response = await Api.editName(id, email);
-            }
+            
+                const response = await Api.editName(name);
+            
+            //     const response = await Api.editName(email);
+            // }
             
         } catch(error){
             alert(error.message);

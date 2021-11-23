@@ -9,7 +9,8 @@ import LateItem from './components/LateItem/LateItem.jsx';
 // import {useState, useEffect} from 'react'
 import "./global.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import EmptyBorrowState from './pages/EmptyState/EmptyState.jsx';
+import { useUsers } from "./contexts/userContext";
+import EmptyState from './pages/EmptyState/EmptyState.jsx';
 import AddButton from './components/AddButton/AddButton.jsx';
 import ListLoanItemBorrow from './components/ListComponents/ListBorrow/ListLoanItemBorrow.jsx';
 import ListLateItemBorrow from './components/ListComponents/ListBorrow/ListLateItemBorrow.jsx';
@@ -17,25 +18,24 @@ import ListLoanItemLoan from './components/ListComponents/ListLoan/ListLoanItemL
 import ListLateItemLoan from './components/ListComponents/ListLoan/ListLateItemLoan.jsx';
 
 function App() {
-
   return (
     <div className="App">
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Menu />
         <Routes>
           <Route path="/" element={<WelcomePage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/board" element={<EmptyBorrowState />} />
+          <Route path="/board" element={<EmptyState />} />
           <Route path="/profile" element={<PerfilPage/>} />
+          <Route path="/emprestado" element={<ListLoanItemBorrow/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
-        <LateItem/> */}
-        <ListLoanItemBorrow/>
-        <ListLateItemBorrow/>
+        
+        {/* <ListLateItemBorrow/>
         <ListLoanItemLoan/>
-        <ListLoanItem/>
+        <ListLoanItem/> */}
     </div>
   );
 }

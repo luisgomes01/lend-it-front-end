@@ -1,6 +1,9 @@
 import { WelcomePageStyle } from "./WelcomePage.js";
 import sobre from "../../img/sobre.png";
+import { useUsers } from "../../contexts/userContext";
 export default function Welcome() {
+  const { setIsLogged } = useUsers();
+  setIsLogged(false);
   return (
     <WelcomePageStyle id="home">
       <section className="nunca-esquece" id="welcome">
@@ -10,7 +13,7 @@ export default function Welcome() {
         <div className="acessar">
           <p>LEND.IT</p>
           <div className="organize-se">
-            <a href="/">
+            <a href="/register">
               <button>Organize-se Já</button>
             </a>
           </div>
