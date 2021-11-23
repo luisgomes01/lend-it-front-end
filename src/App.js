@@ -11,7 +11,8 @@ import "./global.css"
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import EmptyBorrowState from './pages/EmptyState/EmptyState.jsx';
 import AddButton from './components/AddButton/AddButton.jsx';
-import ListLoanItem from './components/ListComponents/ListBorrow/ListLoanItem.jsx';
+import ListLoanItemBorrow from './components/ListComponents/ListBorrow/ListLoanItemBorrow.jsx';
+import ListLateItemBorrow from './components/ListComponents/ListBorrow/ListLateItemBorrow.jsx';
 
 function App() {
 
@@ -24,13 +25,14 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/board" element={<EmptyBorrowState />} />
-          <Route path="/perfil" element={<PerfilPage/>} />
+          <Route path="/profile" element={<PerfilPage/>} />
         </Routes>
         <Footer />
       </BrowserRouter>
       <AddButton/>
         <LateItem/> */}
-        <ListLoanItem/>
+        <ListLoanItemBorrow/>
+        <ListLateItemBorrow/>
       {/* <LoanItem /> */}
     </div>
   );

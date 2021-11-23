@@ -1,15 +1,14 @@
 import Api from '.';
 
 //Cedidos
-  export const listBorrow = async (id) => {
-      console.log(id)
-    const response = await Api.post('cedidos/list/', id);
-    console.log(response.data)
-    // return response.data;
+  export const listBorrow = async () => {
+    const id = localStorage.getItem('@lendit/user_id');
+    const response = await Api.post('cedidos/list/', {id});
+    return response.data;
 }
 //Emprestimos
-export const listLoan = async (id) => {
-    const response = await Api.post('emprestimos/list/', id);
-    console.log(response.data)
-  //   return response.data;
+export const listLoan = async () => {
+    const id = localStorage.getItem('@lendit/user_id');
+    const response = await Api.post('emprestimos/list/', {id});
+    return response.data;
 }
