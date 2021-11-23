@@ -27,7 +27,7 @@ export default function RegisterPage() {
       });
 
       if (response.id) {
-        localStorage.setItem("user_id", response.id);
+        localStorage.setItem("@lendit/user_id", response.id);
       }
       window.location.href = "/login";
       alert("Registrado com sucesso!");
