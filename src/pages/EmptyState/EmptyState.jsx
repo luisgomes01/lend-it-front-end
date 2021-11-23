@@ -2,7 +2,7 @@ import emptystate from "../../img/emptystate.svg";
 
 import { Container } from "./EmptyState.js";
 
-function EmptyBorrowState() {
+function EmptyState() {
   return (
     <Container>
       <img src={emptystate} alt="Nenhum empréstimo listado" />
@@ -14,4 +14,4 @@ function EmptyBorrowState() {
   );
 }
 
-export default EmptyBorrowState;
+export default EmptyState;

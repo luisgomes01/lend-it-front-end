@@ -35,6 +35,7 @@ function App() {
         <ListLoanItemBorrow/>
         <ListLateItemBorrow/>
         <ListLoanItemLoan/>
+        <ListLoanItem/>
     </div>
   );
 }
