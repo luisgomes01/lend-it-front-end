@@ -59,7 +59,7 @@ export default function RegisterPage() {
               <input
                 type="text"
                 placeholder="Nome Completo"
-                id="Nome"
+                id="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -67,7 +67,7 @@ export default function RegisterPage() {
               <input
                 type="password"
                 placeholder="Senha"
-                id="Senha"
+                id="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
@@ -75,7 +75,7 @@ export default function RegisterPage() {
               <input
                 type="password"
                 placeholder="Confirme sua senha"
-                id="Senha"
+                id="confirm_password"
                 value={password_confirmation}
                 onChange={(e) => setPasswordConfirm(e.target.value)}
                 required
