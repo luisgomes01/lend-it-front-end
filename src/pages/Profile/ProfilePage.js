@@ -8,7 +8,7 @@ export const Container = styled.main`
     align-items: center;
     justify-content: center;
 
-    .perfil-container{
+    .profile-container{
         max-width: 400px;
         width: 100%;
         height: 65vh;
@@ -20,7 +20,7 @@ export const Container = styled.main`
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         border-radius: 30px;
 
-        .header-perfil-container{
+        .header-profile-container{
             img{
                 max-width: 200px;
                 width: 100%;

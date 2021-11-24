@@ -1,16 +1,16 @@
-import * as Api from "../../api/edit-perfil";
+import * as Api from "../../api/edit-profile";
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {FiEdit2} from 'react-icons/fi'
 import {IoClose} from 'react-icons/io5'
 
-import perfilimg from '../../img/perfilimg.png'
-import { Container } from './PerfilPage.js'
+import profileimg from '../../img/profileimg.png'
+import { Container } from './ProfilePage.js'
 
 import ButtonSubmit from '../../components/ButtonSubmit/ButtonSubmit.jsx'
 import Title from "../../components/Title/Title.jsx";
 
-function Perfil() {
+function ProfilePage() {
     const [active, setActive] = useState(false);
     const [inputkey, setInputKey] = useState("");
     const [name, setName] = useState("");
@@ -20,40 +20,40 @@ function Perfil() {
         setActive(!active);
         setInputKey(input);
     }
-
     const onSubmit = async (e) =>{ 
         e.preventDefault();
         try{
-            
                 const response = await Api.editName(name);
-            
-            //     const response = await Api.editName(email);
-            // }
-            
         } catch(error){
             alert(error.message);
         }
     }
 
+    useEffect(async() => {
+        const response = await Api.infoUser();
+        setName(response.nome);
+        setEmail(response.email);
+      }, []);
+
     return ( 
     <Container>
         <Title>PERFIL</Title>
-        <div className="perfil-container">
-            <div className="header-perfil-container">
-                <img src={perfilimg} alt="LEND IT IMG" />
+        <div className="profile-container">
+            <div className="header-profile-container">
+                <img src={profileimg} alt="LEND IT IMG" />
             </div>
-            <div className="body-perfil-container">
+            <div className="body-profile-container">
                 <form className="edit">
                     {/* Nome */}
                     <div className="edit-part">
                         <div className="edit-part-section">
-                            <p> Nome: <span>Mylena Rodrigues</span></p>
-                            <button type="button" onClick = {() => appear("nome")}>
-                                {((active) && (inputkey==="nome")) ? <IoClose size={20}/> : <FiEdit2/>}
+                            <p> Nome: <span>{name}</span></p>
+                            <button type="button" onClick = {() => appear("name")}>
+                                {((active) && (inputkey==="name")) ? <IoClose size={20}/> : <FiEdit2/>}
                             </button>
                         </div>
                         <div className="input-name" 
-                        style={((active) && (inputkey==="nome")) ?  {display: 'flex'} : {display:'none'}}>
+                        style={((active) && (inputkey==="name")) ?  {display: 'flex'} : {display:'none'}}>
                             <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Escreva seu novo Nome"/>
                         </div>
                     </div>
@@ -61,7 +61,7 @@ function Perfil() {
                     {/* E-mail */}
                     <div className="edit-part">
                         <div className="edit-part-section">
-                            <p>E-mail: <span> mylenawz@yahoo.com</span></p> 
+                            <p>E-mail: <span> {email}</span></p> 
                             <button type="button" onClick = {() => appear("email")}>
                                 {((active) && (inputkey==="email")) ? <IoClose size={20}/> : <FiEdit2/>}
                             </button>
@@ -104,4 +104,4 @@ function Perfil() {
     );
 }
 
-export default Perfil;
+export default ProfilePage;
