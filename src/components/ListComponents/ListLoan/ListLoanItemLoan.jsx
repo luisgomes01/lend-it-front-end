@@ -6,7 +6,7 @@ import LoanItem from "../../LoanItem/LoanItem.jsx";
 import EmptyState from '../../../pages/EmptyState/EmptyState.jsx'
 
 function ListLoanItem() {
-    const [leans, setLeans] = useState([]);
+    const { leans, setLeans } = useLend();
 
     const lists = async () => {
         const response = await Api.listLoan();
