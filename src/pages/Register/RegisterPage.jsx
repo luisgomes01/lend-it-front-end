@@ -2,7 +2,6 @@ import * as Api from "../../api/register";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useUsers } from "../../contexts/userContext";
 
 import { RegisterPageStyle } from "./RegisterPage";
 import { PageStyle } from "../LoginAndRegisterPages";
@@ -14,7 +13,6 @@ export default function RegisterPage() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirm] = useState("");
-  const { isLogged, setIsLogged } = useUsers();
 
   const onSubmit = async (e) => {
     e.preventDefault();

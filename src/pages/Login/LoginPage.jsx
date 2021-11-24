@@ -1,17 +1,20 @@
 import * as Api from "../../api/auth";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { LoginPageStyle } from "./LoginPage";
 import { PageStyle } from "../LoginAndRegisterPages";
 
 import ButtonSubmit from "../../components/ButtonSubmit/ButtonSubmit.jsx";
 import ForgotPasswordModal from "../../components/ForgotPasswordModal/ForgotPasswordModal.jsx";
+import { useUsers } from "../../contexts/userContext";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setIsLogged } = useUsers();
+  const navigate = useNavigate();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -20,10 +23,12 @@ export default function LoginPage() {
 
       if (response.id) {
         localStorage.setItem("@lendit/user_id", response.id);
-        window.location.href = "/board";
+        setIsLogged(true);
+        navigate("/board");
       }
       alert("Logado com sucesso!");
     } catch (error) {
+      console.error(error);
       alert("Erro ao efetuar login!");
     }
   };
