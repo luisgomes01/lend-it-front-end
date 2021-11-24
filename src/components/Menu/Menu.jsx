@@ -20,7 +20,7 @@ export default function Menu() {
   }
 
   function logout() {
-    localStorage.removeItem("user_id");
+    localStorage.removeItem("@lendit/user_id");
     setIsLogged(false);
   }
 
