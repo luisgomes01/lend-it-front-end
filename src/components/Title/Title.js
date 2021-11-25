@@ -5,5 +5,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  margin: 1.6rem;
+  margin: 1.6rem 0;
+  text-align: center;
 `;

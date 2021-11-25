@@ -8,5 +8,4 @@ export const Container = styled.div`
   font-size: 2rem;
   font-family: "Titillium Web", sans-serif;
   color: #095194;
-  margin: 1rem;
 `;
