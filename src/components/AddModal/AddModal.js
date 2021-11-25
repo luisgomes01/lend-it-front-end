@@ -1,20 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   .modal {
-    width: 90%;
+    width: 100%;
     height: 100%;
     display: flex;
+    z-index: 3;
+    position: fixed;
+    top:0;
+    left: 0;
     align-items: center;
     justify-content: center;
+    background-color: rgba(0, 0, 0, 0.35);
+
+
 
     .modal-content {
       width: 80%;
@@ -23,7 +22,9 @@ export const Container = styled.div`
       border-radius: 30px;
       display: flex;
       flex-direction: column;
-
+    .modal-header-all{
+      display: flex;
+      flex-direction: row-reverse;
       .button-cancel {
         position: absolute;
         margin: 0.8rem;
@@ -40,6 +41,8 @@ export const Container = styled.div`
         margin: 20px;
         width: 100%;
       }
+    }
+      
 
       .send-object {
         width: 100%;
@@ -90,12 +93,33 @@ export const Container = styled.div`
         }
         .modal-footer {
           width: 93%;
+          margin-top: 1.2rem;
           display: flex;
           align-items: center;
           justify-content: flex-end;
           padding: 1rem 0;
         }
       }
+    }
+  }
+  .button-container{
+    position: fixed;
+    right: 30px;
+    top: 77%;
+
+    .add-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.5rem;
+      height: 3.5rem;
+      border: none;
+      background-color: #00b0f0;
+      font-size: 1.75rem;
+      cursor: pointer;
+      color: #ffff;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 100%;
     }
   }
 `;
