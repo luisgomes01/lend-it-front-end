@@ -23,7 +23,7 @@ function ListLateItem() {
                     <LateItem key={lean.id}
                     id={lean.id}
                     name_obj={lean.item_emprestado}
-                    name_resp={lean.nome_donoObj} 
+                    name_resp={lean.nome_responsável_atual} 
                     celphone={lean.contato_celular_devolucao}
                     email={lean.contato_email_devolucao}
                     date_loan = {lean.data_emprestimo} 
