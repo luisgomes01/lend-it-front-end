@@ -8,9 +8,8 @@ function LateItem({
   id,
   name_obj,
   name_resp,
-  celphone,
+  cellphone,
   email,
-  date_loan,
   date_devolution,
   result_devolution,
 }) {
@@ -33,7 +32,7 @@ function LateItem({
             Está com: <span>{name_resp}</span>
           </p>
           <p>
-            Contato: <span> {celphone}</span>
+            Contato: <span> {cellphone}</span>
           </p>
           <p>
             Atrasado desde: <span>{date_devolution}</span>

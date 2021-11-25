@@ -23,9 +23,9 @@ function ListLateItemBorrow() {
             id={lean.id}
             name_obj={lean.item_emprestado}
             name_resp={lean.nome_donoObj}
-            celphone={lean.contato_celular_devolucao}
+            cellphone={lean.contato_celular_devolucao}
             email={lean.contato_email_devolucao}
-            date_loan={lean.data_emprestimo}
+            date_lent={lean.data_emprestimo}
             date_devolution={lean.data_devolucao}
             result_devolution={lean.resultado_devolucao}
           />;

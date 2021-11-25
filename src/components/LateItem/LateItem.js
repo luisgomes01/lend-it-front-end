@@ -47,6 +47,7 @@ export const Container = styled.div`
       align-items: center;
       justify-content: center;
       p {
+        text-align: center;
         margin-top: 0.5rem;
       }
     }

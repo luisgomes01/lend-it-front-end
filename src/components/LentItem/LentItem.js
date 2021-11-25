@@ -7,24 +7,29 @@ export const Container = styled.div`
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   margin: 20px;
+  
   .container {
     display: flex;
     flex-direction: column;
     padding: 15px 20px;
     font-weight: bold;
+
     .header-container {
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      h2 {
+      .name-object-container{
         font-size: 1.5rem;
         color: #095194;
         font-family: "Titillium Web", sans-serif;
       }
+      
       .icons-container {
         display: flex;
         align-items: center;
+        justify-content: flex-end;
         button {
           background: none;
           border: none;

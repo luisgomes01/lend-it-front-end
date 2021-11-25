@@ -1,33 +1,37 @@
 import * as Api from "../../../api/list";
 
-import LoanItem from "../../LoanItem/LoanItem.jsx";
-import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 import { useLend } from "../../../contexts/lendContext";
 
-function ListLoanItem() {
+import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
+import LentItem from "../../LentItem/LentItem.jsx";
+
+function ListLentItemBorrow() {
   const { leans, setLeans } = useLend();
 
   const lists = async () => {
-    const response = await Api.listLoan();
-    console.log(response);
+    const response = await Api.listBorrow();
     setLeans(response);
-    console.log(leans);
   };
 
   if (leans.length === 0) {
-    return <EmptyState />;
+    return (
+      <>
+        <EmptyState />
+        <button onClick={() => lists()}>Chama a lista</button>
+      </>
+    );
   }
   return (
     <>
       {leans.map((lean) => (
-        <LoanItem
+        <LentItem
           key={lean.id}
           id={lean.id}
           name_obj={lean.item_emprestado}
-          name_resp={lean.nome_responsável_atual}
-          celphone={lean.contato_celular_devolucao}
+          name_resp={lean.nome_donoObj}
+          cellphone={lean.contato_celular_devolucao}
           email={lean.contato_email_devolucao}
-          date_loan={lean.data_emprestimo}
+          date_lent={lean.data_emprestimo}
           date_devolution={lean.data_devolucao}
           result_devolution={lean.resultado_devolucao}
         />
@@ -37,4 +41,4 @@ function ListLoanItem() {
   );
 }
 
-export default ListLoanItem;
+export default ListLentItemBorrow;

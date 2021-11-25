@@ -1,16 +1,16 @@
-import { Container } from "./LoanItem.js";
+import { Container } from "./LentItem.js";
 import { IoClose } from "react-icons/io5";
 import { FiEdit2 } from "react-icons/fi";
 
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
 
-function LoanItem({
+function LentItem({
   id,
   name_obj,
   name_resp,
-  celphone,
+  cellphone,
   email,
-  date_loan,
+  date_lent,
   date_devolution,
   result_devolution,
 }) {
@@ -18,7 +18,9 @@ function LoanItem({
     <Container>
       <div className="container">
         <div className="header-container">
-          <h2>{name_obj}</h2>
+          <div className="name-object-container">
+            <h2>{name_obj}</h2>
+          </div>
           <div className="icons-container">
             <button>
               <FiEdit2 size={24} />
@@ -35,13 +37,13 @@ function LoanItem({
                 Está com: <span> {name_resp}</span>
               </p>
               <p>
-                Contato: <span> {celphone} </span>
+                Contato: <span> {cellphone} </span>
               </p>
             </div>
             <div className="last-line">
               {!date_devolution ? (
                 <p>
-                  Emprestado em: <span>{date_loan}</span>
+                  Emprestado em: <span>{date_lent}</span>
                 </p>
               ) : (
                 <p>
@@ -79,4 +81,4 @@ function LoanItem({
   );
 }
 
-export default LoanItem;
+export default LentItem;
