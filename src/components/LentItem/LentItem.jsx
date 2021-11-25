@@ -31,7 +31,7 @@ function LentItem({
           </div>
         </div>
         <div className="body-container">
-          <div className="left-body-containt">
+          <div className="left-body-content">
             <div className="middle-line">
               <p>
                 Está com: <span> {name_resp}</span>
@@ -58,13 +58,13 @@ function LentItem({
         </div>
       </div>
       {/* <div className="container">
-                    <div className="lef-info-containt">
+                    <div className="lef-info-content">
                         <h3>Blusa Vermelha</h3>
                         <p>Está com: <span> Mylena Rodrigues</span></p>
                         <p>Será devolvido em: <span> 22/11/2021</span></p>
                     </div>
                     
-                    <div className="right-info-containt">
+                    <div className="right-info-content">
                         <p>Contato: <span> (81) 98682-6693 </span></p>    
                     </div>
                 <div className="buttons-container">

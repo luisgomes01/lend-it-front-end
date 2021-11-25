@@ -50,7 +50,7 @@ export const Container = styled.div`
       align-items: flex-end;
       justify-content: center;
 
-      .left-body-containt {
+      .left-body-content {
         width: 75%;
         display: flex;
         flex-direction: column;

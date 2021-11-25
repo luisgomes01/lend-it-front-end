@@ -32,9 +32,9 @@ function ProfilePage() {
   };
 
   useEffect(async () => {
-    const response = await Api.infoUser();
-    setName(response.nome);
-    setEmail(response.email);
+      const response = await Api.infoUser();
+      setName(response.nome);
+      setEmail(response.email);
   }, []);
 
   return (

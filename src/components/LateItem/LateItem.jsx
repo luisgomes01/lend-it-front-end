@@ -13,9 +13,10 @@ function LateItem({
   date_devolution,
   result_devolution,
 }) {
+
   return (
     <Container>
-      <div className="container">
+      <div className="late-container">
         <div className="header-container">
           <h2>{name_obj}</h2>
           <div className="icons-container">

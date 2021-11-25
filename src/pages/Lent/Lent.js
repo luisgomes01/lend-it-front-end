@@ -13,27 +13,28 @@ export const Container = styled.main`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    .left-containt,
-    .right-containt{
+    .left-content,
+    .right-content{
       height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
 
-      .left-containt-header,
-      .right-containt-header{
+      .left-content-header,
+      .right-content-header{
         display: flex;
         align-items: center;
       }
         
     }
-    .left-containt{
+    .left-content{
       max-width: 500px;
       width: 100%;
+      margin
     }
 
-    .right-containt{
+    .right-content{
       max-width: 800px;
       width: 100%;
     }

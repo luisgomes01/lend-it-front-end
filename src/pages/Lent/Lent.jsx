@@ -14,16 +14,16 @@ export default function Lent() {
       </div>
 
       <div className="container">
-        <div className="left-containt">
-          <div className="left-containt-header">
+        <div className="left-content">
+          <div className="left-content-header">
             <SubTitle>
               DEVOLUÇÕES ATRASADAS
             </SubTitle>
           </div>
             <ListLateItemLent/>
         </div>
-        <div className="right-containt">
-          <div className="right-containt-header">
+        <div className="right-content">
+          <div className="right-content-header">
           <SubTitle>
             LISTA DE EMPRÉSTIMOS
           </SubTitle>
