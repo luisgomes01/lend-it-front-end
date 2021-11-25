@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.header`
   position: fixed;
@@ -14,7 +14,7 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+
     .app-intro {
       display: inherit;
       justify-content: space-between;
@@ -25,7 +25,7 @@ export const Container = styled.header`
         width: auto;
         height: 4rem;
       }
-      
+
       .app-name {
         height: 4rem;
         font-size: 2rem;
@@ -37,7 +37,7 @@ export const Container = styled.header`
     .nav {
       width: 100%;
 
-      ul{
+      ul {
         color: #fff;
         display: flex;
         justify-content: flex-end;
@@ -48,15 +48,12 @@ export const Container = styled.header`
           margin-right: 6rem;
           font-size: 16px;
 
-          a{
+          a {
             text-decoration: none;
             color: inherit;
           }
         }
       }
     }
-  
   }
 `;
-
-

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import AppRoutes from "./AppRoutes";
 import AuthRoutes from "./AuthRoutes";
 import { useUsers } from "../contexts/userContext";

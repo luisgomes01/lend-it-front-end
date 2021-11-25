@@ -16,9 +16,9 @@ function ListLoanItemBorrow() {
   if (leans.length === 0) {
     return (
       <>
-    <EmptyState/> 
-    <button onClick={() => lists()}>Chama a lista</button>
-    </>
+        <EmptyState />
+        <button onClick={() => lists()}>Chama a lista</button>
+      </>
     );
   }
   return (
