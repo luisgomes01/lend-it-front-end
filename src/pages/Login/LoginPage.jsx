@@ -24,9 +24,8 @@ export default function LoginPage() {
       if (response.id) {
         localStorage.setItem("@lendit/user_id", response.id);
         setIsLogged(true);
-        navigate("/board");
+        navigate("/emprestei");
       }
-      alert("Logado com sucesso!");
     } catch (error) {
       console.error(error);
       alert("Erro ao efetuar login!");

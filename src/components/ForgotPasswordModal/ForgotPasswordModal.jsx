@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import { Container } from "./ForgotPasswordModal";
 
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";

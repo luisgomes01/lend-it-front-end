@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import welcomeimg from '../../img/welcomeimg.png'
+import styled from "styled-components";
+import welcomeimg from "../../img/welcomeimg.png";
 
 export const WelcomePageStyle = styled.main`
   display: flex;
@@ -8,11 +8,11 @@ export const WelcomePageStyle = styled.main`
   width: 100%;
 
   .title {
-      p{
-        font-family: "Antic Slab", serif;
-        font-size: 2.5rem;
-      }
-  } 
+    p {
+      font-family: "Antic Slab", serif;
+      font-size: 2.5rem;
+    }
+  }
 
   .nunca-esquece {
     width: 100%;
@@ -27,20 +27,20 @@ export const WelcomePageStyle = styled.main`
     background-position: center;
     background-size: 60%;
 
-    .acessar{
+    .acessar {
       flex-basis: 50%;
-      
-      p{
+
+      p {
         font-size: 4rem;
         font-family: "Antic Slab", serif;
         text-align: center;
       }
 
-      .organize-se{
+      .organize-se {
         display: flex;
         justify-content: center;
 
-        button{
+        button {
           width: 10rem;
           height: 4rem;
           padding: 0 0.7rem;
@@ -53,14 +53,14 @@ export const WelcomePageStyle = styled.main`
           font-size: 1.2rem;
           color: #fff;
 
-          :hover{
+          :hover {
             transform: scale(1.1);
             background-color: #095194;
-            transition: .2s ease-in-out;
+            transition: 0.2s ease-in-out;
           }
         }
       }
-    }  
+    }
   }
 
   .sobre {
@@ -92,10 +92,10 @@ export const WelcomePageStyle = styled.main`
           font-size: 1.5rem;
           padding: 0 10%;
 
-          p{
+          p {
             text-indent: 2rem;
             line-height: 2rem;
-            +p{  
+            + p {
               margin-top: 4rem;
             }
           }
@@ -112,5 +112,4 @@ export const WelcomePageStyle = styled.main`
       }
     }
   }
-`
-
+`;

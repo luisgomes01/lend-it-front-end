@@ -1,9 +1,12 @@
 import * as Api from "../../../api/list";
 import { useState } from "react";
+import { useLend } from "../../../contexts/lendContext";
+
 import LateItem from "../../LateItem/LateItem.jsx";
 import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 
 function ListLateItemBorrow() {
+<<<<<<< HEAD
   const [leans, setLeans] = useState([]);
 
   const lists = async () => {
@@ -15,6 +18,12 @@ function ListLateItemBorrow() {
   const actualDate = new Date().getTime();
   console.log(actualDate);
 
+=======
+  const { leans } = useLend();
+
+  const actualDate = new Date().getTime();
+
+>>>>>>> 5b0f978c6dafd65a781c67adce3989ef04cf5884
   if (leans.length === 0) {
     return <EmptyState />;
   }
