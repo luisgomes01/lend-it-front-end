@@ -6,28 +6,27 @@ import LateItem from "../../LateItem/LateItem.jsx";
 import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 
 function ListLateItemBorrow() {
-  const { leans } = useLend();
-
+  const { late } = useLend();
   const actualDate = new Date().getTime();
 
-  if (leans.length === 0) {
+  if (late.length === 0) {
     return <EmptyState />;
   }
   return (
     <>
-      {leans.map((lean) => {
-        const dataEmprestimo = new Date(lean.data_devolucao).getTime();
-        if (actualDate > dataEmprestimo) {
-          <LateItem
-            key={lean.id}
-            id={lean.id}
-            name_obj={lean.item_emprestado}
-            name_resp={lean.nome_donoObj}
-            cellphone={lean.contato_celular_devolucao}
-            email={lean.contato_email_devolucao}
-            date_lent={lean.data_emprestimo}
-            date_devolution={lean.data_devolucao}
-            result_devolution={lean.resultado_devolucao}
+      {late.map((lat) => {
+        const dataEmprestimo = new Date(lat.data_devolucao).getTime();
+        if (actualDate > dataEmprestimo && (dataEmprestimo > 0)) {
+          return <LateItem
+            key={lat.id}
+            id={lat.id}
+            name_obj={lat.item_emprestado}
+            name_resp={lat.nome_donoObj}
+            cellphone={lat.contato_celular_devolucao}
+            email={lat.contato_email_devolucao}
+            date_lent={lat.data_emprestimo}
+            date_devolution={lat.data_devolucao}
+            result_devolution={lat.resultado_devolucao}
           />;
         }
       })}

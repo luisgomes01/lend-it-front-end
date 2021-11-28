@@ -1,24 +1,25 @@
 import * as Api from "../../../api/list";
 
 import { useLend } from "../../../contexts/lendContext";
+import { useEffect } from "react";
 
 import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 import LentItem from "../../LentItem/LentItem.jsx";
 
 function ListLentItemBorrow() {
   const { leans, setLeans } = useLend();
+  const { setLate } = useLend();
 
-  const lists = async () => {
+  
+  useEffect(async () =>{
     const response = await Api.listBorrow();
     setLeans(response);
-  };
+    setLate(response);
+   }, []);
 
   if (leans.length === 0) {
     return (
-      <>
-        <EmptyState />
-        <button onClick={() => lists()}>Chama a lista</button>
-      </>
+      <EmptyState />
     );
   }
   return (
@@ -36,7 +37,6 @@ function ListLentItemBorrow() {
           result_devolution={lean.resultado_devolucao}
         />
       ))}
-      <button onClick={() => lists()}>Chama a lista</button>
     </>
   );
 }

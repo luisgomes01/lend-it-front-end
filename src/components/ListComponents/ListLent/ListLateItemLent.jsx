@@ -9,7 +9,6 @@ import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 
 function ListLateItemLent() {
   const { late } = useLend();
-  console.log(late);
   const actualDate = new Date().getTime();
 
   if (late.length === 0) {

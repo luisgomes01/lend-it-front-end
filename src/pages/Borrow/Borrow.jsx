@@ -1,12 +1,13 @@
 import Title from '../../components/Title/Title.jsx'
 import SubTitle from '../../components/SubTitle/SubTitle.jsx'
-import ListLentItemLent from "../../components/ListComponents/ListLent/ListLentItemLent.jsx";
-import ListLateItemLent from "../../components/ListComponents/ListLent/ListLateItemLent.jsx";
+import ListLentItemBorrow from "../../components/ListComponents/ListBorrow/ListLentItemBorrow.jsx";
+import ListLateItemBorrow from "../../components/ListComponents/ListBorrow/ListLateItemBorrow.jsx";
 import AddModal from "../../components/AddModal/AddModal.jsx";
-import { Container } from "./Lent.js";
 
-export default function Lent() {
-  return (
+import {Container} from './Borrow.js'
+
+function Borrow() {
+  return ( 
     <Container>
       <div className="title">
         <Title>EMPRESTEI</Title>
@@ -19,7 +20,7 @@ export default function Lent() {
               DEVOLUÇÕES ATRASADAS
             </SubTitle>
           </div>
-            <ListLateItemLent/>
+            <ListLateItemBorrow/>
         </div>
         <div className="right-content">
           <div className="right-content-header">
@@ -27,7 +28,7 @@ export default function Lent() {
             LISTA DE EMPRÉSTIMOS
           </SubTitle>
           </div>
-            <ListLentItemLent/>
+            <ListLentItemBorrow/>
 
         </div>
       </div>
@@ -35,3 +36,5 @@ export default function Lent() {
     </Container>
   );
 }
+
+export default Borrow;

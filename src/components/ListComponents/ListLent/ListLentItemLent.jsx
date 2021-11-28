@@ -7,15 +7,12 @@ import { useEffect } from "react";
 
 function ListLentItemLent() {
   const { leans, setLeans } = useLend();
-  const { late, setLate } = useLend();
+  const { setLate } = useLend();
 
  useEffect(async () =>{
   const response = await Api.listLent();
-  console.log(response);
   setLeans(response);
   setLate(response);
-  console.log(leans);
-  console.log(late);
  }, []);
 
   if (leans.length === 0) {

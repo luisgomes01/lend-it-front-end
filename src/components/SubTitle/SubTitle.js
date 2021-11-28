@@ -6,6 +6,5 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 2rem;
-  font-family: "Titillium Web", sans-serif;
   color: #095194;
 `;

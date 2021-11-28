@@ -3,10 +3,13 @@ import { MdClose } from "react-icons/md";
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
 import { Container } from "./AddModal.js";
 import { ImPlus } from "react-icons/im";
-import { AddButtonContainer } from "../AddButton/AddButton.js";
+import { useLend } from '../../contexts/lendContext'
 
 export default function AddModal() {
-  const data = new Date();
+
+  const { leans, setLeans } = useLend();
+  const { late, setLate } = useLend();
+  
   const [showModal, setShowModal] = useState(false);
   const openModal = () => {
     setShowModal(true);
@@ -52,7 +55,6 @@ return (
                 <input
                   name="date-object-lend"
                   type="text"
-                  placeholder={data}
                   required
                 />
                     
