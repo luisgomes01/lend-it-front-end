@@ -2,42 +2,44 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   width: 100%;
-  height: 100vh;
-  margin-top: 5rem;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
-  .container{
+  .title {
+    margin-bottom: 2.5rem;
+  }
+  .container {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 20px;
+
     .left-content,
-    .right-content{
-      height: 100%;
+    .right-content {
+      flex-basis: calc(50% - 20px);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
 
       .left-content-header,
-      .right-content-header{
+      .right-content-header {
         display: flex;
         align-items: center;
       }
-        
     }
 
-    .left-content{
+    .left-content {
       max-width: 500px;
-      width: 100%;
     }
 
-    .right-content{
+    .right-content {
       max-width: 800px;
-      width: 100%;
     }
   }
-`
+`;

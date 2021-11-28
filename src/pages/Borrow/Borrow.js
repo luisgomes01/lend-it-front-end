@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-width: 100%;
+  width: 100%;
   height: 100vh;
   margin-top: 5rem;
   display: flex;
@@ -9,13 +9,13 @@ width: 100%;
   align-items: center;
   justify-content: flex-start;
 
-  .container{
+  .container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     .left-content,
-    .right-content{
+    .right-content {
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -23,21 +23,20 @@ width: 100%;
       justify-content: flex-start;
 
       .left-content-header,
-      .right-content-header{
+      .right-content-header {
         display: flex;
         align-items: center;
       }
-        
     }
 
-    .left-content{
+    .left-content {
       max-width: 500px;
       width: 100%;
     }
 
-    .right-content{
+    .right-content {
       max-width: 800px;
       width: 100%;
     }
   }
-`
+`;

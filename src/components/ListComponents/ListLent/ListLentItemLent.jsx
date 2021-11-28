@@ -5,22 +5,22 @@ import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 import { useLend } from "../../../contexts/lendContext";
 import { useEffect } from "react";
 
-function ListLentItemLent() {
-  const { leans, setLeans } = useLend();
+export default function ListLentItemLent() {
+  const { lends, setLends } = useLend();
   const { setLate } = useLend();
 
- useEffect(async () =>{
-  const response = await Api.listLent();
-  setLeans(response);
-  setLate(response);
- }, []);
+  useEffect(async () => {
+    const response = await Api.listLent();
+    setLends(response);
+    setLate(response);
+  }, []);
 
-  if (leans.length === 0) {
+  if (lends.length === 0) {
     return <EmptyState />;
   }
   return (
     <>
-      {leans.map((lean) => (
+      {lends.map((lean) => (
         <LentItem
           key={lean.id}
           id={lean.id}
@@ -36,5 +36,3 @@ function ListLentItemLent() {
     </>
   );
 }
-
-export default ListLentItemLent;

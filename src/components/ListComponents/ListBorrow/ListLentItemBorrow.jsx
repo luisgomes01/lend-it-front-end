@@ -7,24 +7,21 @@ import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 import LentItem from "../../LentItem/LentItem.jsx";
 
 function ListLentItemBorrow() {
-  const { leans, setLeans } = useLend();
+  const { lends, setLends } = useLend();
   const { setLate } = useLend();
 
-  
-  useEffect(async () =>{
+  useEffect(async () => {
     const response = await Api.listBorrow();
-    setLeans(response);
+    setLends(response);
     setLate(response);
-   }, []);
+  }, []);
 
-  if (leans.length === 0) {
-    return (
-      <EmptyState />
-    );
+  if (lends.length === 0) {
+    return <EmptyState />;
   }
   return (
     <>
-      {leans.map((lean) => (
+      {lends.map((lean) => (
         <LentItem
           key={lean.id}
           id={lean.id}

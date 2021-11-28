@@ -1,13 +1,13 @@
-import Title from '../../components/Title/Title.jsx'
-import SubTitle from '../../components/SubTitle/SubTitle.jsx'
+import Title from "../../components/Title/Title.jsx";
+import SubTitle from "../../components/SubTitle/SubTitle.jsx";
 import ListLentItemBorrow from "../../components/ListComponents/ListBorrow/ListLentItemBorrow.jsx";
 import ListLateItemBorrow from "../../components/ListComponents/ListBorrow/ListLateItemBorrow.jsx";
-import AddModal from "../../components/AddModal/AddModal.jsx";
+import BorrowModal from "../../components/Modals/BorrowModal.jsx";
 
-import {Container} from './Borrow.js'
+import { Container } from "./Borrow.js";
 
 function Borrow() {
-  return ( 
+  return (
     <Container>
       <div className="title">
         <Title>EMPRESTEI</Title>
@@ -16,23 +16,18 @@ function Borrow() {
       <div className="container">
         <div className="left-content">
           <div className="left-content-header">
-            <SubTitle>
-              DEVOLUÇÕES ATRASADAS
-            </SubTitle>
+            <SubTitle>DEVOLUÇÕES ATRASADAS</SubTitle>
           </div>
-            <ListLateItemBorrow/>
+          <ListLateItemBorrow />
         </div>
         <div className="right-content">
           <div className="right-content-header">
-          <SubTitle>
-            LISTA DE EMPRÉSTIMOS
-          </SubTitle>
+            <SubTitle>LISTA DE EMPRÉSTIMOS</SubTitle>
           </div>
-            <ListLentItemBorrow/>
-
+          <ListLentItemBorrow />
         </div>
       </div>
-      <AddModal />
+      <BorrowModal />
     </Container>
   );
 }

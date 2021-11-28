@@ -1,8 +1,8 @@
-import Title from '../../components/Title/Title.jsx'
-import SubTitle from '../../components/SubTitle/SubTitle.jsx'
+import Title from "../../components/Title/Title.jsx";
+import SubTitle from "../../components/SubTitle/SubTitle.jsx";
 import ListLentItemLent from "../../components/ListComponents/ListLent/ListLentItemLent.jsx";
 import ListLateItemLent from "../../components/ListComponents/ListLent/ListLateItemLent.jsx";
-import AddModal from "../../components/AddModal/AddModal.jsx";
+import LendModal from "../../components/Modals/LendModal.jsx";
 import { Container } from "./Lent.js";
 
 export default function Lent() {
@@ -15,23 +15,18 @@ export default function Lent() {
       <div className="container">
         <div className="left-content">
           <div className="left-content-header">
-            <SubTitle>
-              DEVOLUÇÕES ATRASADAS
-            </SubTitle>
+            <SubTitle>DEVOLUÇÕES ATRASADAS</SubTitle>
           </div>
-            <ListLateItemLent/>
+          <ListLateItemLent />
         </div>
         <div className="right-content">
           <div className="right-content-header">
-          <SubTitle>
-            LISTA DE EMPRÉSTIMOS
-          </SubTitle>
+            <SubTitle>LISTA DE EMPRÉSTIMOS</SubTitle>
           </div>
-            <ListLentItemLent/>
-
+          <ListLentItemLent />
         </div>
       </div>
-      <AddModal />
+      <LendModal />
     </Container>
   );
 }
