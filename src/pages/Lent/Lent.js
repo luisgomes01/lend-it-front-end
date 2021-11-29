@@ -3,19 +3,21 @@ import styled from "styled-components";
 export const Container = styled.main`
   width: 100%;
   min-height: 100vh;
+  margin-top: 4.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  .title {
-    margin-bottom: 2.5rem;
+  
+  .title{
+    margin-bottom: 1.5rem;
   }
+
   .container {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
     gap: 20px;
 

@@ -2,7 +2,7 @@ import Title from "../../components/Title/Title.jsx";
 import SubTitle from "../../components/SubTitle/SubTitle.jsx";
 import ListLentItemBorrow from "../../components/ListComponents/ListBorrow/ListLentItemBorrow.jsx";
 import ListLateItemBorrow from "../../components/ListComponents/ListBorrow/ListLateItemBorrow.jsx";
-import BorrowModal from "../../components/Modals/BorrowModal.jsx";
+import BorrowModal from "../../components/Modals/BorrowPageModal.jsx";
 
 import { Container } from "./Borrow.js";
 
@@ -10,7 +10,7 @@ function Borrow() {
   return (
     <Container>
       <div className="title">
-        <Title>EMPRESTEI</Title>
+        <Title>PEGUEI EMPRESTADO</Title>
       </div>
 
       <div className="container">

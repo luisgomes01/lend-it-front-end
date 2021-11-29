@@ -32,7 +32,7 @@ export default function ListLentItemLent() {
           date_devolution={lean.data_devolucao}
           result_devolution={lean.resultado_devolucao}
         />
-      ))}
+        ))}
     </>
   );
 }

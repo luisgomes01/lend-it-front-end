@@ -50,7 +50,7 @@ export const Container = styled.div`
           justify-content: space-between;
 
           .modal-body-part {
-            padding-left: 50px;
+            padding: 0 50px;
             width: 50%;
             display: flex;
             flex-direction: column;
@@ -58,6 +58,7 @@ export const Container = styled.div`
             justify-content: center;
 
             h3 {
+              text-align: center;
               color: #00b0f0;
               margin-bottom: 20px;
             }

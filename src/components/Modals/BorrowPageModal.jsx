@@ -1,18 +1,66 @@
+import * as Api from "../../api/create-item";
+
 import { useState } from "react";
-import { MdClose } from "react-icons/md";
-import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
-import { Container } from "./BorrowModal.js";
-import { ImPlus } from "react-icons/im";
 import { useLend } from "../../contexts/lendContext";
 
-export default function BorrowModal() {
-  const { lends, setLends } = useLend();
-  const { late, setLate } = useLend();
+import { MdClose } from "react-icons/md";
+import { ImPlus } from "react-icons/im";
 
+import { Container } from "./ModalsStyle.js";
+
+import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
+
+export default function LendModal() {
+  // Modal States 
   const [showModal, setShowModal] = useState(false);
   const openModal = () => {
     setShowModal(true);
   };
+
+  //Object lists
+  const { lends, setLends } = useLend();
+  const { late, setLate } = useLend();
+
+  //Page fields
+  const [object, setObject] = useState("");
+  const [lentDate, setLentDate] = useState("");
+  const [objectReturnDate, setObjectReturnDate] = useState("");
+  const [whoLent, setWhoLent] = useState("");
+  const [emailWhoLent, setEmailWhoLent] = useState("");
+  const [cellphoneWhoLent, setCellphoneWhoLent] = useState("");
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try{
+    const response = await Api.createBorrow(object, whoLent, cellphoneWhoLent, emailWhoLent, lentDate, objectReturnDate);
+    if(response.id){
+      const newList = [
+        ...lends,
+        response
+      ]
+      
+      setLends(newList);
+      setLate(newList);
+      alert("Novo Item '" + response.item_emprestado + "' criado com sucesso!!!");
+      
+      //Fechando Modal depois do alerta
+      setShowModal(false);
+
+      // Setando campos para vazios de novo
+      setObject("");
+      setWhoLent("");
+      setLentDate("");
+      setObjectReturnDate("");
+      setEmailWhoLent("");
+      setCellphoneWhoLent("");
+
+    }
+    
+    }catch(error){
+      alert("Item não criado. Por favor, verifique os campos obrigatórios")
+    }
+  }
 
   return (
     <Container>
@@ -44,7 +92,9 @@ export default function BorrowModal() {
                   <input
                     name="object-name"
                     type="text"
+                    value={object}
                     placeholder="Digite nome do novo objeto..."
+                    onChange={(e) => setObject(e.target.value)}
                     required
                   />
 
@@ -54,7 +104,9 @@ export default function BorrowModal() {
                   <input
                     name="date-object-lend"
                     type="text"
-                    placeholder="Data de quando foi emprestado"
+                    value={lentDate}
+                    placeholder="Data de quando foi emprestado..."
+                    onChange={(e) => { setLentDate(e.target.value)}}
                     required
                   />
 
@@ -64,46 +116,55 @@ export default function BorrowModal() {
                   <input
                     name="data-devolucao-objeto"
                     type="text"
+                    value={objectReturnDate}
                     placeholder="Data de Devolução..."
+                    onChange={(e) => {setObjectReturnDate(e.target.value)}}
                   />
                 </div>
 
                 <div className="modal-body-part">
-                  <h3>INFORMAÇÕES DE QUEM PEGOU</h3>
+                  <h3>INFORMAÇÕES DE QUEM EMPRESTOU</h3>
 
                   <label htmlFor="nome-quem-pegou">
-                    Quem pegou? <span>*</span>
+                    Nome de quem emprestou? <span>*</span>
                   </label>
                   <input
                     name="nome-quem-pegou"
                     type="text"
-                    placeholder="Digite o nome de quem pegou o novo objeto emprestado..."
+                    value={whoLent}
+                    placeholder="Digite o nome de quem emprestou o novo objeto..."
+                    onChange={(e) => {setWhoLent(e.target.value)}}
                     required
                   />
 
                   <label htmlFor="email-quem-pegou">
-                    Qual o e-mail de quem pegou?
+                    Qual o e-mail de quem emprestou?
                   </label>
                   <input
                     name="email-quem-pegou"
                     type="email"
-                    placeholder="Digite e-mail de quem pegou o novo objeto emprestado..."
+                    value={emailWhoLent}
+                    placeholder="Digite o e-mail de quem emprestou o novo objeto..."
+                    onChange={(e) => {setEmailWhoLent(e.target.value)}}
                   />
 
                   <label htmlFor="celular-quem-pegou">
-                    Qual o número de celular de quem pegou? <span>*</span>
+                    Qual o número de celular de quem emprestou? <span>*</span>
                   </label>
                   <input
                     name="celular-quem-pegou"
                     type="text"
+                    value={cellphoneWhoLent}
                     placeholder="Digite celular de quem pegou o novo objeto emprestado..."
+                    onChange={(e) => {setCellphoneWhoLent(e.target.value)}}
                     required
                   />
                 </div>
               </div>
 
               <div className="modal-footer">
-                <ButtonSubmit>EMPRESTAR</ButtonSubmit>
+                <ButtonSubmit 
+                submit={onSubmit}>EMPRESTAR</ButtonSubmit>
               </div>
             </form>
           </div>
