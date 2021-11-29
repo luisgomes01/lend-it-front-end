@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.main`
   width: 100%;
-  min-height: 100vh;
-  margin-top: 4.5rem;
+  min-height: calc(100vh - 4.5rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  .title{
+
+  .title {
     margin-bottom: 1.5rem;
   }
 
