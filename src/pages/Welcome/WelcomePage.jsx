@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { WelcomePageStyle } from "./WelcomePage.js";
 import sobre from "../../img/sobre.png";
 
@@ -11,9 +12,9 @@ export default function Welcome() {
         <div className="acessar">
           <p>LEND.IT</p>
           <div className="organize-se">
-            <a href="/register">
+            <Link to="/register">
               <button>Organize-se Já</button>
-            </a>
+            </Link>
           </div>
         </div>
       </section>
