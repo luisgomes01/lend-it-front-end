@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
+  margin-top: 4.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +28,7 @@ export const Container = styled.div`
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-
+      margin-bottom: 3.5rem;
       .left-content-header,
       .right-content-header {
         display: flex;
@@ -37,10 +38,12 @@ export const Container = styled.div`
 
     .left-content {
       max-width: 500px;
+      height: 100vh;
     }
 
     .right-content {
       max-width: 800px;
+      
     }
   }
 `;

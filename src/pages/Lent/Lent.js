@@ -28,7 +28,8 @@ export const Container = styled.main`
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-
+      margin-bottom: 3.5rem;
+      
       .left-content-header,
       .right-content-header {
         display: flex;

@@ -30,6 +30,7 @@ export const Container = styled.div`
           border: none;
           font-size: 2.1rem;
           color: #00b0f0;
+          cursor: pointer;
         }
 
         .modal-header {
