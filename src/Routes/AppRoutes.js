@@ -14,9 +14,9 @@ export default function AppRoutes() {
     <>
       <Menu />
       <Routes>
+        <Route path="/emprestado" element={<Borrow />} />
         <Route path="/emprestei" element={<Lent />} />
         <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/emprestado" element={<Borrow />} />
       </Routes>
       <Footer />
     </>

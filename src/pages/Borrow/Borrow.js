@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  .title{
+  .title {
     margin-bottom: 1.5rem;
   }
 
