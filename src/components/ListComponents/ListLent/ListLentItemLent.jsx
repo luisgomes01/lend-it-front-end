@@ -32,7 +32,7 @@ export default function ListLentItemLent() {
           key={lean.id}
           id={lean.id}
           name_obj={lean.item_emprestado}
-          name_resp={lean.nome_responsável_atual}
+          name_resp={lean.nome_responsavel_atual}
           cellphone={lean.contato_celular_devolucao}
           email={lean.contato_email_devolucao}
           date_lent={lean.data_emprestimo}

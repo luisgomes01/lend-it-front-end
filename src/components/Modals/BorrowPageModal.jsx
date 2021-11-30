@@ -19,7 +19,7 @@ export default function LendModal() {
 
   //Object lists
   const { lends, setLends } = useLend();
-  const { late, setLate } = useLend();
+  const { setLate } = useLend();
 
   //Page fields
   const [object, setObject] = useState("");

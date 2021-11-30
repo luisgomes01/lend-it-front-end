@@ -18,7 +18,7 @@ export default function Welcome() {
           </div>
         </div>
       </section>
-      <section id="sobre" className="sobre" id="about">
+      <section className="sobre" id="about">
         <div className="title">
           <p>CONHECENDO O LEND.IT</p>
         </div>

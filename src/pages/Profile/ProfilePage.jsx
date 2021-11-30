@@ -31,10 +31,18 @@ function ProfilePage() {
     }
   };
 
-  useEffect(async () => {
-      const response = await Api.infoUser();
-      setName(response.nome);
-      setEmail(response.email);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await Api.infoUser();
+        setName(response.nome);
+        setEmail(response.email);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchData();   
   }, []);
 
   return (

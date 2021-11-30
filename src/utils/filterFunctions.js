@@ -6,6 +6,6 @@ const filterNameBorrow = (array, name) => {
 
 const filterNameLend = (array, name) => {
   return array.map((arr) => {
-    return arr.nome_responsável_atual === name;
+    return arr.nome_responsavel_atual === name;
   });
 };

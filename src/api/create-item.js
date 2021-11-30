@@ -28,7 +28,7 @@ export const createBorrow = async (
 //Emprestimos - Emprestei
 export const createLent = async (
     item_emprestado,
-    nome_responsável_atual,
+    nome_responsavel_atual,
     contato_celular_devolucao,
     contato_email_devolucao,
     data_emprestimo,
@@ -41,7 +41,7 @@ export const createLent = async (
       {
         id_usuario_donoObj,
         item_emprestado,
-        nome_responsável_atual,
+        nome_responsavel_atual,
         contato_celular_devolucao,
         contato_email_devolucao,
         data_emprestimo,

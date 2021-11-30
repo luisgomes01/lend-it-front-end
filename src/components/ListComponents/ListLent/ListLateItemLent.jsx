@@ -27,7 +27,7 @@ function ListLateItemLent() {
           key={lat.id}
           id={lat.id}
           name_obj={lat.item_emprestado}
-          name_resp={lat.nome_responsável_atual}
+          name_resp={lat.nome_responsavel_atual}
           cellphone={lat.contato_celular_devolucao}
           email={lat.contato_email_devolucao}
           date_lent={lat.data_emprestimo}
