@@ -1,7 +1,8 @@
+import { useEffect } from "react";
+
 import * as Api from "../../../api/list";
 
 import { useLend } from "../../../contexts/lendContext";
-import { useEffect } from "react";
 
 import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 import LentItem from "../../LentItem/LentItem.jsx";
@@ -10,15 +11,23 @@ function ListLentItemBorrow() {
   const { lends, setLends } = useLend();
   const { setLate } = useLend();
 
-  useEffect(async () => {
-    const response = await Api.listBorrow();
-    setLends(response);
-    setLate(response);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await Api.listBorrow();
+        setLends(response);
+        setLate(response);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchData();
   }, []);
 
   if (lends.length === 0) {
     return <EmptyState />;
   }
+
   return (
     <>
       {lends.map((lean) => (

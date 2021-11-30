@@ -11,7 +11,7 @@ export default function Lent() {
       <div className="title">
         <Title>EMPRESTEI</Title>
       </div>
-      
+
       <div className="container">
         <div className="left-content">
           <div className="left-content-header">

@@ -1,18 +1,25 @@
+import { useEffect } from "react";
+
 import * as Api from "../../../api/list";
 
 import LentItem from "../../LentItem/LentItem.jsx";
 import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 import { useLend } from "../../../contexts/lendContext";
-import { useEffect } from "react";
 
 export default function ListLentItemLent() {
-  const { lends, setLends } = useLend();
-  const { setLate } = useLend();
+  const { lends, setLends, setLate } = useLend();
 
-  useEffect(async () => {
-    const response = await Api.listLent();
-    setLends(response);
-    setLate(response);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await Api.listLent();
+        setLends(response);
+        setLate(response);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchData();
   }, []);
 
   if (lends.length === 0) {
@@ -32,7 +39,7 @@ export default function ListLentItemLent() {
           date_devolution={lean.data_devolucao}
           result_devolution={lean.resultado_devolucao}
         />
-        ))}
+      ))}
     </>
   );
 }
