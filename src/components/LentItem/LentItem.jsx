@@ -1,10 +1,10 @@
 import { Container } from "./LentItem.js";
 import { IoClose } from "react-icons/io5";
 import { FiEdit2 } from "react-icons/fi";
-
+import { useLend } from "../../contexts/lendContext.js";
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
 
-function LentItem({
+export default function LentItem({
   id,
   name_obj,
   name_resp,
@@ -14,6 +14,7 @@ function LentItem({
   date_devolution,
   result_devolution,
 }) {
+  const { removeLend } = useLend();
   return (
     <Container>
       <div className="container">
@@ -25,7 +26,7 @@ function LentItem({
             <button>
               <FiEdit2 size={24} />
             </button>
-            <button>
+            <button onClick={() => removeLend(id)}>
               <IoClose size={34} />
             </button>
           </div>
@@ -57,28 +58,6 @@ function LentItem({
           </div>
         </div>
       </div>
-      {/* <div className="container">
-                    <div className="lef-info-content">
-                        <h3>Blusa Vermelha</h3>
-                        <p>Está com: <span> Mylena Rodrigues</span></p>
-                        <p>Será devolvido em: <span> 22/11/2021</span></p>
-                    </div>
-                    
-                    <div className="right-info-content">
-                        <p>Contato: <span> (81) 98682-6693 </span></p>    
-                    </div>
-                <div className="buttons-container">
-                    <div className="icons-container">
-                        <IoClose size={30}/> 
-                        <FiEdit2 size={24}/>
-                    </div>
-                    <ButtonSubmit>
-                        Devolvido
-                    </ButtonSubmit>
-                </div>
-            </div>     */}
     </Container>
   );
 }
-
-export default LentItem;

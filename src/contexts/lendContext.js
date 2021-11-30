@@ -1,16 +1,15 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { createContext, useState, useContext } from "react";
 
 const lendContext = createContext({});
 
 export default function LendContextProvider({ children }) {
   const [lends, setLends] = useState([]);
   const [late, setLate] = useState([]);
-  const [object, setObject] = useState([]);
-  const [lentDate, setLentDate] = useState([]);
-  const [objectReturnDate, setObjectReturnDate] = useState([]);
-  const [whoLent, setWhoLent] = useState([]);
-  const [emailWhoLent, setEmailWhoLent] = useState([]);
-  const [cellphoneWhoLent, setCellphoneWhoLent] = useState([]);
+
+  function removeLend(id) {
+    setLends(lends.filter((e) => e.id !== id));
+    setLate(late.filter((e) => e.id !== id));
+  }
 
   return (
     <lendContext.Provider
@@ -19,6 +18,7 @@ export default function LendContextProvider({ children }) {
         setLends,
         late,
         setLate,
+        removeLend,
       }}
     >
       {children}
