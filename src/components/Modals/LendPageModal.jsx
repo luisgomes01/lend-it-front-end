@@ -166,7 +166,7 @@ export default function BorrowModal() {
               </div>
 
               <div className="modal-footer">
-                <ButtonSubmit>EMPRESTAR</ButtonSubmit>
+                <ButtonSubmit submit = {onSubmit}>EMPRESTAR</ButtonSubmit>
               </div>
             </form>
           </div>
