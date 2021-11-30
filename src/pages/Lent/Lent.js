@@ -9,6 +9,7 @@ export const Container = styled.main`
   justify-content: center;
 
   .title {
+    padding-top: 4rem;
     margin-bottom: 1.5rem;
   }
 
@@ -28,7 +29,7 @@ export const Container = styled.main`
       align-items: center;
       justify-content: flex-start;
       margin-bottom: 3.5rem;
-      
+
       .left-content-header,
       .right-content-header {
         display: flex;

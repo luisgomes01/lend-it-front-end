@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  min-height: 100vh;
-  margin-top: 4.5rem;
+  min-height: calc(100vh - 4.5rem);
+  /* margin-top: 4.5rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
   .title {
+    padding-top: 4rem;
     margin-bottom: 1.5rem;
   }
 
@@ -38,12 +39,10 @@ export const Container = styled.div`
 
     .left-content {
       max-width: 500px;
-      height: 100vh;
     }
 
     .right-content {
       max-width: 800px;
-      
     }
   }
 `;

@@ -3,6 +3,7 @@ import { IoClose } from "react-icons/io5";
 import { FiEdit2 } from "react-icons/fi";
 
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
+import { useLend } from "../../contexts/lendContext.js";
 
 function LateItem({
   id,
@@ -13,6 +14,7 @@ function LateItem({
   date_devolution,
   result_devolution,
 }) {
+  const { removeLend } = useLend();
 
   return (
     <Container>
@@ -23,7 +25,7 @@ function LateItem({
             <button>
               <FiEdit2 size={24} />
             </button>
-            <button>
+            <button onClick={() => removeLend(id)}>
               <IoClose size={34} />
             </button>
           </div>

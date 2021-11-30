@@ -8,6 +8,7 @@ const actualDate = new Date().getTime();
 
 function ListLateItemLent() {
   const { late } = useLend();
+
   const lateFiltered = useMemo(() => {
     return late.filter((lat) => {
       const dataEmprestimo = new Date(lat.data_devolucao).getTime();

@@ -29,41 +29,42 @@ export default function BorrowModal() {
   const [emailWhoLent, setEmailWhoLent] = useState("");
   const [cellphoneWhoLent, setCellphoneWhoLent] = useState("");
 
-  
-    
-
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    try{
-    const response = await Api.createLent(object, whoLent, cellphoneWhoLent, emailWhoLent, lentDate, objectReturnDate);
-    if(response.id){
-      const newList = [
-        ...lends,
-        response
-      ]
-      
-      setLends(newList);
-      setLate(newList);
-      alert("Novo Item '" + response.item_emprestado + "' criado com sucesso!!!");
-      
-      //Fechando Modal depois do alerta
-      setShowModal(false);
+    try {
+      const response = await Api.createLent(
+        object,
+        whoLent,
+        cellphoneWhoLent,
+        emailWhoLent,
+        lentDate,
+        objectReturnDate
+      );
+      if (response.id) {
+        const newList = [...lends, response];
 
-      // Setando campos para vazios de novo
-      setObject("");
-      setWhoLent("");
-      setLentDate("");
-      setObjectReturnDate("");
-      setEmailWhoLent("");
-      setCellphoneWhoLent("");
+        setLends(newList);
+        setLate(newList);
+        alert(
+          "Novo Item '" + response.item_emprestado + "' criado com sucesso!!!"
+        );
 
+        //Fechando Modal depois do alerta
+        setShowModal(false);
+
+        // Setando campos para vazios de novo
+        setObject("");
+        setWhoLent("");
+        setLentDate("");
+        setObjectReturnDate("");
+        setEmailWhoLent("");
+        setCellphoneWhoLent("");
+      }
+    } catch (error) {
+      alert("Item não criado. Por favor, verifique os campos obrigatórios");
     }
-    
-    }catch(error){
-      alert("Item não criado. Por favor, verifique os campos obrigatórios")
-    }
-  }
+  };
 
   return (
     <Container>
@@ -109,7 +110,9 @@ export default function BorrowModal() {
                     type="text"
                     value={lentDate}
                     placeholder="Data de quando foi emprestado..."
-                    onChange={(e) => { setLentDate(e.target.value)}}
+                    onChange={(e) => {
+                      setLentDate(e.target.value);
+                    }}
                     required
                   />
 
@@ -121,7 +124,9 @@ export default function BorrowModal() {
                     type="text"
                     value={objectReturnDate}
                     placeholder="Data de Devolução..."
-                    onChange={(e) => {setObjectReturnDate(e.target.value)}}
+                    onChange={(e) => {
+                      setObjectReturnDate(e.target.value);
+                    }}
                   />
                 </div>
 
@@ -136,7 +141,9 @@ export default function BorrowModal() {
                     type="text"
                     value={whoLent}
                     placeholder="Digite o nome de quem pegou o novo objeto emprestado..."
-                    onChange={(e) => {setWhoLent(e.target.value)}}
+                    onChange={(e) => {
+                      setWhoLent(e.target.value);
+                    }}
                     required
                   />
 
@@ -148,7 +155,9 @@ export default function BorrowModal() {
                     type="email"
                     value={emailWhoLent}
                     placeholder="Digite e-mail de quem pegou o novo objeto emprestado..."
-                    onChange={(e) => {setEmailWhoLent(e.target.value)}}
+                    onChange={(e) => {
+                      setEmailWhoLent(e.target.value);
+                    }}
                   />
 
                   <label htmlFor="celular-quem-pegou">
@@ -159,7 +168,9 @@ export default function BorrowModal() {
                     type="text"
                     value={cellphoneWhoLent}
                     placeholder="Digite celular de quem pegou o novo objeto emprestado..."
-                    onChange={(e) => {setCellphoneWhoLent(e.target.value)}}
+                    onChange={(e) => {
+                      setCellphoneWhoLent(e.target.value);
+                    }}
                     required
                   />
                 </div>
@@ -167,6 +178,7 @@ export default function BorrowModal() {
 
               <div className="modal-footer">
                 <ButtonSubmit submit = {onSubmit}>EMPRESTAR</ButtonSubmit>
+
               </div>
             </form>
           </div>
