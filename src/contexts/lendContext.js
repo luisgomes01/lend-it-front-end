@@ -11,8 +11,8 @@ export default function LendContextProvider({ children }) {
     try {
       setLends(lends.filter((e) => e.id !== id));
       setLate(late.filter((e) => e.id !== id));
-      alert("Atualizado com sucesso!");
       await Api.destroyBorrow({id});
+      alert("Removido com sucesso!");
     } catch (err) {
       alert(err.message);
     }
