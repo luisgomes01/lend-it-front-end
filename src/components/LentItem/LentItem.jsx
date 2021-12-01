@@ -3,7 +3,7 @@ import { IoClose } from "react-icons/io5";
 import { useLend } from "../../contexts/lendContext.js";
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
 import EditModal from "../EditModal/EditModal.jsx";
-
+import { useLocation } from 'react-router-dom';
 
 export default function LentItem({
   id,
@@ -17,6 +17,9 @@ export default function LentItem({
 }) {
   
   const { removeLend } = useLend();
+  const location = useLocation();
+  const pathname = location.pathname;
+  console.log(pathname)
   return (
     <Container>
       <div className="container">
@@ -26,7 +29,7 @@ export default function LentItem({
           </div>
           <div className="icons-container">
             <EditModal/>
-            <button className="icon-button" onClick={() => removeLend(id)}>
+            <button className="icon-button" onClick={() => removeLend(id, pathname)}>
               <IoClose size={34} />
             </button>
           </div>
