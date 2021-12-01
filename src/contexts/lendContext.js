@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 
-import * as Api from '../api/delete.js'
+import * as Api from "../api/delete.js";
 const lendContext = createContext({});
 
 export default function LendContextProvider({ children }) {
@@ -13,9 +13,9 @@ export default function LendContextProvider({ children }) {
       setLends(lends.filter((e) => e.id !== id));
       setLate(late.filter((e) => e.id !== id));
       alert("Atualizado com sucesso!");
-    } catch(err){
+    } catch (err) {
       alert(err.message);
-    }  
+    }
   }
 
   return (
