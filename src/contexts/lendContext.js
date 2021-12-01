@@ -9,10 +9,10 @@ export default function LendContextProvider({ children }) {
 
   async function removeLend(id) {
     try {
-      await Api.destroyBorrow(id);
       setLends(lends.filter((e) => e.id !== id));
       setLate(late.filter((e) => e.id !== id));
       alert("Atualizado com sucesso!");
+      await Api.destroyBorrow({id});
     } catch (err) {
       alert(err.message);
     }

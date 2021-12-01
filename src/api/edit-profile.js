@@ -14,6 +14,5 @@ export const edit = async ({ name, email }) => {
 
 export const editPassword = async (id, senha) => {
   const response = await Api.post("usuarios/edit-password", id, senha);
-
-  return response.data;
+  return response;
 };

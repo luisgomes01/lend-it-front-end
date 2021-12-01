@@ -1,8 +1,9 @@
 import { Container } from "./LentItem.js";
 import { IoClose } from "react-icons/io5";
-import { FiEdit2 } from "react-icons/fi";
 import { useLend } from "../../contexts/lendContext.js";
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
+import EditModal from "../EditModal/EditModal.jsx";
+
 
 export default function LentItem({
   id,
@@ -14,6 +15,7 @@ export default function LentItem({
   date_devolution,
   result_devolution,
 }) {
+  
   const { removeLend } = useLend();
   return (
     <Container>
@@ -23,10 +25,8 @@ export default function LentItem({
             <h2>{name_obj}</h2>
           </div>
           <div className="icons-container">
-            <button>
-              <FiEdit2 size={24} />
-            </button>
-            <button onClick={() => removeLend(id)}>
+            <EditModal/>
+            <button className="icon-button" onClick={() => removeLend(id)}>
               <IoClose size={34} />
             </button>
           </div>
