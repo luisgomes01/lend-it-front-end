@@ -30,14 +30,14 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        button {
+        .icon-button{
           background: none;
           border: none;
           color: #00b0f0;
           font-weight: 900;
           cursor: pointer;
 
-          + button {
+          + .icon-button{
             margin-left: 1rem;
           }
         }
