@@ -4,7 +4,7 @@ import { FiEdit2 } from "react-icons/fi";
 
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
 import { useLend } from "../../contexts/lendContext.js";
-
+import { format } from "date-fns";
 function LateItem({
   id,
   name_obj,
@@ -38,7 +38,8 @@ function LateItem({
             Contato: <span> {cellphone}</span>
           </p>
           <p>
-            Atrasado desde: <span>{date_devolution}</span>
+            Atrasado desde:{" "}
+            <span>{format(new Date(date_devolution), "dd/MM/yyyy")}</span>
           </p>
         </div>
         <div className="footer-container">

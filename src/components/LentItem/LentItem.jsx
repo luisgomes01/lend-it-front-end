@@ -3,7 +3,7 @@ import { IoClose } from "react-icons/io5";
 import { FiEdit2 } from "react-icons/fi";
 import { useLend } from "../../contexts/lendContext.js";
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
-
+import { format } from "date-fns";
 export default function LentItem({
   id,
   name_obj,
@@ -48,7 +48,8 @@ export default function LentItem({
                 </p>
               ) : (
                 <p>
-                  Será devolvido em: <span> {date_devolution}</span>
+                  Será devolvido em:{" "}
+                  <span>{format(new Date(date_devolution), "dd/MM/yyyy")}</span>
                 </p>
               )}
             </div>

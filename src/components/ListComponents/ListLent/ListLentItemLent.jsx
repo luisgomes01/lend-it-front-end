@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 import * as Api from "../../../api/list";
-
 import LentItem from "../../LentItem/LentItem.jsx";
 import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 import { useLend } from "../../../contexts/lendContext";
