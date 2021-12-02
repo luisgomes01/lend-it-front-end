@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-
 import * as Api from "../../../api/list";
 import LentItem from "../../LentItem/LentItem.jsx";
 import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
@@ -19,7 +18,7 @@ export default function ListLentItemLent() {
       }
     }
     fetchData();
-  }, []);
+  }, [setLends, setLate]);
 
   if (lends.length === 0) {
     return <EmptyState />;

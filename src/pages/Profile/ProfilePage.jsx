@@ -29,8 +29,8 @@ function ProfilePage() {
     } catch (error) {
       alert(error.message);
     }
+    setActive(false);
   };
-
 
   useEffect(() => {
     async function fetchData() {
@@ -42,7 +42,7 @@ function ProfilePage() {
         console.log(err);
       }
     }
-    fetchData();   
+    fetchData();
   }, []);
 
   return (

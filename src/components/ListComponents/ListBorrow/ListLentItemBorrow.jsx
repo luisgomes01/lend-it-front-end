@@ -1,15 +1,11 @@
 import { useEffect } from "react";
-
 import * as Api from "../../../api/list";
-
 import { useLend } from "../../../contexts/lendContext";
-
 import EmptyState from "../../../pages/EmptyState/EmptyState.jsx";
 import LentItem from "../../LentItem/LentItem.jsx";
 
 function ListLentItemBorrow() {
-  const { lends, setLends } = useLend();
-  const { setLate } = useLend();
+  const { lends, setLends, setLate } = useLend();
 
   useEffect(() => {
     async function fetchData() {
@@ -22,7 +18,7 @@ function ListLentItemBorrow() {
       }
     }
     fetchData();
-  }, []);
+  }, [setLends, setLate]);
 
   if (lends.length === 0) {
     return <EmptyState />;

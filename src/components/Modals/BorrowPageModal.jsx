@@ -1,69 +1,35 @@
-import * as Api from "../../api/create-item";
-
-import { useState } from "react";
-import { useLend } from "../../contexts/lendContext";
-
 import { MdClose } from "react-icons/md";
 import { ImPlus } from "react-icons/im";
+import { useLend } from "../../contexts/lendContext";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { pt } from "date-fns/esm/locale";
 
 import { Container } from "./ModalsStyle.js";
-
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
 
 export default function LendModal() {
-  // Modal States
-  const [showModal, setShowModal] = useState(false);
+  //Object list and Page Fields
+  const {
+    showModal,
+    setShowModal,
+    object,
+    setObject,
+    lentDate,
+    setLentDate,
+    objectReturnDate,
+    setObjectReturnDate,
+    whoLent,
+    setWhoLent,
+    emailWhoLent,
+    setEmailWhoLent,
+    cellphoneWhoLent,
+    setCellphoneWhoLent,
+    createBorrowLend,
+  } = useLend();
+
   const openModal = () => {
     setShowModal(true);
-  };
-
-  //Object lists
-  const { lends, setLends } = useLend();
-  const { setLate } = useLend();
-
-  //Page fields
-  const [object, setObject] = useState("");
-  const [lentDate, setLentDate] = useState("");
-  const [objectReturnDate, setObjectReturnDate] = useState("");
-  const [whoLent, setWhoLent] = useState("");
-  const [emailWhoLent, setEmailWhoLent] = useState("");
-  const [cellphoneWhoLent, setCellphoneWhoLent] = useState("");
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await Api.createBorrow(
-        object,
-        whoLent,
-        cellphoneWhoLent,
-        emailWhoLent,
-        lentDate,
-        objectReturnDate
-      );
-      if (response.id) {
-        const newList = [...lends, response];
-
-        setLends(newList);
-        setLate(newList);
-        alert(
-          "Novo Item '" + response.item_emprestado + "' criado com sucesso!!!"
-        );
-
-        //Fechando Modal depois do alerta
-        setShowModal(false);
-
-        // Setando campos para vazios de novo
-        setObject("");
-        setWhoLent("");
-        setLentDate("");
-        setObjectReturnDate("");
-        setEmailWhoLent("");
-        setCellphoneWhoLent("");
-      }
-    } catch (error) {
-      alert("Item não criado. Por favor, verifique os campos obrigatórios");
-    }
   };
 
   return (
@@ -80,7 +46,15 @@ export default function LendModal() {
                 type="button"
                 className="button-cancel"
                 data-dismiss="modal"
-                onClick={() => setShowModal(false)}
+                onClick={() => {
+                  setShowModal(false);
+                  setObject("");
+                  setWhoLent("");
+                  setLentDate(new Date());
+                  setObjectReturnDate("");
+                  setEmailWhoLent("");
+                  setCellphoneWhoLent("");
+                }}
               >
                 <MdClose />
               </button>
@@ -105,28 +79,28 @@ export default function LendModal() {
                   <label htmlFor="date-object-lend">
                     Quando foi emprestado?
                   </label>
-                  <input
-                    name="date-object-lend"
-                    type="text"
-                    value={lentDate}
-                    placeholder="Data de quando foi emprestado..."
-                    onChange={(e) => {
-                      setLentDate(e.target.value);
-                    }}
-                    required
+                  <DatePicker
+                    selected={lentDate}
+                    onChange={(date) => setLentDate(date)}
+                    locale={pt}
+                    showTimeSelect
+                    timeFormat="p"
+                    timeIntervals={15}
+                    dateFormat="Pp"
                   />
 
                   <label htmlFor="data-devolucao-objeto">
                     Quando será devolvido?
                   </label>
-                  <input
-                    name="data-devolucao-objeto"
-                    type="text"
-                    value={objectReturnDate}
-                    placeholder="Data de Devolução..."
-                    onChange={(e) => {
-                      setObjectReturnDate(e.target.value);
-                    }}
+                  <DatePicker
+                    selected={objectReturnDate}
+                    onChange={(date) => setObjectReturnDate(date)}
+                    locale={pt}
+                    showTimeSelect
+                    timeFormat="p"
+                    timeIntervals={15}
+                    dateFormat="Pp"
+                    placeholder="data"
                   />
                 </div>
 
@@ -134,7 +108,7 @@ export default function LendModal() {
                   <h3>INFORMAÇÕES DE QUEM EMPRESTOU</h3>
 
                   <label htmlFor="nome-quem-pegou">
-                    Nome de quem emprestou? <span>*</span>
+                    Quem emprestou? <span>*</span>
                   </label>
                   <input
                     name="nome-quem-pegou"
@@ -167,7 +141,7 @@ export default function LendModal() {
                     name="celular-quem-pegou"
                     type="text"
                     value={cellphoneWhoLent}
-                    placeholder="Digite celular de quem pegou o novo objeto emprestado..."
+                    placeholder="Apenas números (com DDD)"
                     onChange={(e) => {
                       setCellphoneWhoLent(e.target.value);
                     }}
@@ -177,7 +151,9 @@ export default function LendModal() {
               </div>
 
               <div className="modal-footer">
-                <ButtonSubmit submit={onSubmit}>EMPRESTAR</ButtonSubmit>
+                <ButtonSubmit submit={createBorrowLend}>
+                  PEGAR EMPRESTADO
+                </ButtonSubmit>
               </div>
             </form>
           </div>

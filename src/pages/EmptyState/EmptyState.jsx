@@ -8,7 +8,8 @@ function EmptyState() {
       <img src={emptystate} alt="Nenhum empréstimo listado" />
       <p>
         Adicione um <span>novo objeto</span> em sua lista
-        <p>clicando no botão de adicionar</p>
+        <br />
+        clicando no botão de adicionar
       </p>
     </Container>
   );
