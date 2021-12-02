@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  .modal{
+  display: flex;
+  align-items: center;
+  .modal {
     width: 100%;
     height: 100%;
     display: flex;
@@ -13,7 +15,7 @@ export const Container = styled.div`
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.35);
 
-    .modal-container{
+    .modal-container {
       max-width: 800px;
       width: 100%;
       background-color: #ffff;
@@ -23,11 +25,11 @@ export const Container = styled.div`
       flex-direction: column;
       padding: 10px 15px 20px 15px;
 
-      .modal-header{
+      .modal-header {
         display: flex;
         flex-direction: row-reverse;
-        
-        .button-cancel{
+
+        .button-cancel {
           position: absolute;
           margin: 0.8rem;
           background: none;
@@ -36,14 +38,14 @@ export const Container = styled.div`
           color: #00b0f0;
           cursor: pointer;
         }
-        .modal-title{
+        .modal-title {
           display: flex;
           justify-content: flex-start;
           font-size: 1.5rem;
           margin: 20px;
           width: 100%;
-          
-          input{
+
+          input {
             width: 90%;
             border: none;
             border-bottom: solid 1px #c4c4c4;
@@ -52,57 +54,56 @@ export const Container = styled.div`
             font-family: "Titillium Web", sans-serif;
 
             :focus {
-                  border: none;
-                  outline: 0;
-                }
+              border: none;
+              outline: 0;
+            }
           }
         }
       }
-      .modal-body{
+      .modal-body {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-          .left-modal-content,
-          .right-modal-content {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 0px 10px;
+        .left-modal-content,
+        .right-modal-content {
+          width: 50%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 0px 10px;
 
-              label {
-                margin-top: 1rem;
-                align-self: flex-start;
-              }
-
-              input {
-                padding: 15px;
-                align-self: center;
-                width: 100%;
-                height: 2.7rem;
-                margin-top: 0.9rem;
-                border-radius: 6px;
-                border: solid 3px #c4c4c4;
-
-                :focus {
-                  border-color: #00b0f0;
-                  outline: 0;
-                }
-              }
-
-              .save-button{
-                height: 5.9rem;
-                width: 100%;
-                display: flex;
-                align-items: flex-end;
-                justify-content: flex-end;
-              } 
+          label {
+            margin-top: 1rem;
+            align-self: flex-start;
           }
+
+          input {
+            padding: 15px;
+            align-self: center;
+            width: 100%;
+            height: 2.7rem;
+            margin-top: 0.9rem;
+            border-radius: 6px;
+            border: solid 3px #c4c4c4;
+
+            :focus {
+              border-color: #00b0f0;
+              outline: 0;
+            }
+          }
+
+          .save-button {
+            height: 5.9rem;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+          }
+        }
       }
     }
   }
-  
-`
+`;

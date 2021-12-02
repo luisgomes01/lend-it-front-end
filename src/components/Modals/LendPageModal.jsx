@@ -10,7 +10,12 @@ import { Container } from "./ModalsStyle.js";
 
 import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { pt } from "date-fns/esm/locale";
+
 export default function BorrowModal() {
+  const todayNow = {};
   //Modal States
   const [showModal, setShowModal] = useState(false);
   const openModal = () => {
@@ -23,14 +28,17 @@ export default function BorrowModal() {
 
   //Page fields
   const [object, setObject] = useState("");
-  const [lentDate, setLentDate] = useState("");
-  const [objectReturnDate, setObjectReturnDate] = useState("");
+  const [lentDate, setLentDate] = useState(new Date());
+  const [objectReturnDate, setObjectReturnDate] = useState(null);
   const [whoLent, setWhoLent] = useState("");
   const [emailWhoLent, setEmailWhoLent] = useState("");
   const [cellphoneWhoLent, setCellphoneWhoLent] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    console.log(typeof(objectReturnDate))
+    console.log(typeof(lentDate))
+    if (!handleInputs()) return;
 
     try {
       const response = await Api.createLent(
@@ -56,14 +64,42 @@ export default function BorrowModal() {
         // Setando campos para vazios de novo
         setObject("");
         setWhoLent("");
-        setLentDate("");
-        setObjectReturnDate("");
+
         setEmailWhoLent("");
         setCellphoneWhoLent("");
       }
     } catch (error) {
       alert("Item não criado. Por favor, verifique os campos obrigatórios");
     }
+  };
+
+  const handleInputs = () => {
+    if (object.trim().length === 0) {
+      alert("Digite o nome do objeto para prosseguir!");
+      return false;
+    }
+
+    if (lentDate.toString().trim().length > 0 && objectReturnDate !== null && objectReturnDate < lentDate) {
+      alert("A data de devolução não pode ser antes da data do empréstimo!");
+      return false;
+    }
+
+    if (whoLent.trim().length === 0) {
+      alert("Digite o nome de quem pegou o objeto!");
+      return false;
+    }
+
+    if (whoLent.trim().length === 0) {
+      alert("Digite o nome de quem pegou o objeto!");
+      return false;
+    }
+
+    if (cellphoneWhoLent.length !== 11) {
+      alert("Certifique-se de ter digitado o DDD e o número corretamente!");
+      return false;
+    }
+
+    return true;
   };
 
   return (
@@ -105,28 +141,27 @@ export default function BorrowModal() {
                   <label htmlFor="date-object-lend">
                     Quando foi emprestado?
                   </label>
-                  <input
-                    name="date-object-lend"
-                    type="text"
-                    value={lentDate}
-                    placeholder="Data de quando foi emprestado..."
-                    onChange={(e) => {
-                      setLentDate(e.target.value);
-                    }}
-                    required
+                  <DatePicker
+                    selected={lentDate}
+                    onChange={(date) => setLentDate(date)}
+                    locale={pt}
+                    showTimeSelect
+                    timeFormat="p"
+                    timeIntervals={15}
+                    dateFormat="Pp"
                   />
 
                   <label htmlFor="data-devolucao-objeto">
                     Quando será devolvido?
                   </label>
-                  <input
-                    name="data-devolucao-objeto"
-                    type="text"
-                    value={objectReturnDate}
-                    placeholder="Data de Devolução..."
-                    onChange={(e) => {
-                      setObjectReturnDate(e.target.value);
-                    }}
+                  <DatePicker
+                    selected={objectReturnDate}
+                    onChange={(date) => setObjectReturnDate(date)}
+                    locale={pt}
+                    showTimeSelect
+                    timeFormat="p"
+                    timeIntervals={15}
+                    dateFormat="Pp"
                   />
                 </div>
 
@@ -167,7 +202,7 @@ export default function BorrowModal() {
                     name="celular-quem-pegou"
                     type="text"
                     value={cellphoneWhoLent}
-                    placeholder="Digite celular de quem pegou o novo objeto emprestado..."
+                    placeholder="Apenas números (com DDD)"
                     onChange={(e) => {
                       setCellphoneWhoLent(e.target.value);
                     }}

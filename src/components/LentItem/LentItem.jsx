@@ -5,7 +5,7 @@ import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
 
 import { format } from "date-fns";
 
-import EditModal from "../EditModal/EditModal.jsx";
+import EditModal from "../Modals/EditModal/EditModal.jsx";
 import { useLocation } from "react-router-dom";
 
 export default function LentItem({
@@ -21,7 +21,7 @@ export default function LentItem({
   const { removeLend } = useLend();
   const location = useLocation();
   const pathname = location.pathname;
-  console.log(pathname);
+
   return (
     <Container>
       <div className="container">
@@ -52,7 +52,7 @@ export default function LentItem({
             <div className="last-line">
               {!date_devolution ? (
                 <p>
-                  Emprestado em: <span>{date_lent}</span>
+                  Emprestado em: <span>{format(new Date(date_lent), "dd/MM/yyyy")}</span>
                 </p>
               ) : (
                 <p>
