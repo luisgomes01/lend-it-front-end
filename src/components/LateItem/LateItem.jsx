@@ -1,3 +1,5 @@
+import { useLocation } from "react-router-dom";
+
 import { Container } from "./LateItem.js";
 import { IoClose } from "react-icons/io5";
 import { FiEdit2 } from "react-icons/fi";
@@ -15,7 +17,7 @@ function LateItem({
   result_devolution,
 }) {
   const { removeLend } = useLend();
-
+  const pathname = useLocation().pathname;
   return (
     <Container>
       <div className="late-container">
@@ -25,7 +27,7 @@ function LateItem({
             <button>
               <FiEdit2 size={24} />
             </button>
-            <button onClick={() => removeLend(id)}>
+            <button onClick={() => removeLend(id, pathname)}>
               <IoClose size={34} />
             </button>
           </div>

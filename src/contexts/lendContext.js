@@ -1,6 +1,8 @@
 import React, { createContext, useState, useContext } from "react";
 import { destroyBorrow, destroyLent } from "../api/delete.js";
 import { createBorrow, createLent } from "../api/create-item.js";
+import { editBorrow, editLent } from "../api/edit-item.js";
+import api from "../api/index.js";
 const lendContext = createContext({});
 
 export default function LendContextProvider({ children }) {
@@ -140,6 +142,59 @@ export default function LendContextProvider({ children }) {
     }
   }
 
+  const findOneObject = async (id) => {
+    try{
+          const [response] = lends.filter(lent => {return lent.id === id})
+          console.log(response)
+          if(response){
+            setObject(response.item_emprestado);
+            setWhoLent(response.nome_donoObj);
+            setEmailWhoLent(response.contato_email_devolucao);
+            setCellphoneWhoLent(response.contato_celular_devolucao);
+            setLentDate(new Date(response.data_emprestimo));
+            if(response.data_devolucao){
+              setObjectReturnDate(response.data_devolucao);  
+            }
+          }
+          
+    } catch(err){
+      alert(
+        'Objeto não encontrado na base de dados, por favor, entre em contato com os administradores'
+        )
+    }
+  }
+
+  const updateItem = async (id, location) => {
+    try{
+      if(location === "/emprestado"){
+       await editBorrow(
+          id,
+          object,
+          whoLent, 
+          cellphoneWhoLent,
+          emailWhoLent,
+          lentDate, 
+          objectReturnDate,        
+        )
+          alert(object + ' atualizado com sucesso!!!')
+      } else {
+
+      await editLent(
+          id,
+          object,
+          whoLent, 
+          cellphoneWhoLent,
+          emailWhoLent,
+          lentDate, 
+          objectReturnDate,        
+        )
+          alert(object + 'atualizado com sucesso!!!')
+      }  
+    } catch(err){
+      alert(object + ' não pode ser atualizado')
+    }
+  }
+
   return (
     <lendContext.Provider
       value={{
@@ -164,6 +219,8 @@ export default function LendContextProvider({ children }) {
         setShowModal,
         createLend,
         createBorrowLend,
+        updateItem,
+        findOneObject
       }}
     >
       {children}

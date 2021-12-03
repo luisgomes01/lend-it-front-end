@@ -1,26 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { format } from "date-fns";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { pt } from "date-fns/esm/locale";
+import { MdClose } from "react-icons/md";
+import { FiEdit2 } from "react-icons/fi"; 
 
 import { Container } from "./EditModal";
-import { MdClose } from "react-icons/md";
-import { FiEdit2 } from "react-icons/fi";
-
 import ButtonSubmit from "../../ButtonSubmit/ButtonSubmit.jsx";
+import { useLend } from '../../../contexts/lendContext';
 
-export default function EditModal() {
+export default function EditModal({id}) {
+  const location = useLocation().pathname;
+
   const [showModal, setShowModal] = useState(false);
-  const openModal = () => {
+  const openInfoModal = () => {
     setShowModal(true);
   };
 
-  const [object, setObject] = useState("");
-  const [lentDate, setLentDate] = useState("");
-  const [objectReturnDate, setObjectReturnDate] = useState("");
-  const [whoLent, setWhoLent] = useState("");
-  const [emailWhoLent, setEmailWhoLent] = useState("");
-  const [cellphoneWhoLent, setCellphoneWhoLent] = useState("");
+  const { object, setObject, 
+        lentDate, setLentDate, 
+        objectReturnDate, setObjectReturnDate, 
+        whoLent, setWhoLent, 
+        emailWhoLent, setEmailWhoLent, 
+        cellphoneWhoLent, setCellphoneWhoLent,
+        updateItem,
+        findOneObject
+        } = useLend();
+        
+  const onSubmit = (e) => {
+    e.preventDefault();
+    updateItem(id, location);
+  }
 
-  const location = useLocation();
+  useEffect(() => {
+    const loadData = async() =>{
+      await findOneObject(id);
+    }
+    loadData();
+  }, [])
+
   return (
     <Container>
       {showModal && (
@@ -62,32 +82,32 @@ export default function EditModal() {
                   onChange={(e) => setWhoLent(e.target.value)}
                   required
                 />
-
+                
                 {/* Data de Empréstimo */}
                 <label htmlFor="date-object-lend">Emprestado em:</label>
-                <input
-                  name="date-object-lend"
-                  type="text"
-                  value={lentDate}
-                  placeholder="Data de quando foi emprestado..."
-                  onChange={(e) => {
-                    setLentDate(e.target.value);
-                  }}
-                  required
-                />
+                <DatePicker
+                    selected={lentDate}
+                    onChange={(date) => setLentDate(date)}
+                    locale={pt}
+                    showTimeSelect
+                    timeFormat="p"
+                    timeIntervals={15}
+                    dateFormat="Pp"
+                  />
 
                 <label htmlFor="data-devolucao-objeto">
                   Será devolvido em:
                 </label>
-                <input
-                  name="data-devolucao-objeto"
-                  type="text"
-                  value={objectReturnDate}
-                  placeholder="Data de Devolução..."
-                  onChange={(e) => {
-                    setObjectReturnDate(e.target.value);
-                  }}
-                />
+
+                <DatePicker
+                    selected={objectReturnDate}
+                    onChange={(date) => setObjectReturnDate(date)}
+                    locale={pt}
+                    showTimeSelect
+                    timeFormat="p"
+                    timeIntervals={15}
+                    dateFormat="Pp"
+                  />
               </div>
               <div className="right-modal-content">
                 {/* Contato - Email */}
@@ -115,7 +135,7 @@ export default function EditModal() {
                 />
 
                 <div className="save-button">
-                  <ButtonSubmit>Salvar</ButtonSubmit>
+                  <ButtonSubmit submit={onSubmit}>Salvar</ButtonSubmit>
                 </div>
               </div>
             </div>
@@ -123,7 +143,9 @@ export default function EditModal() {
         </div>
       )}
 
-      <button className="icon-button" onClick={openModal}>
+      <button 
+      className="icon-button" 
+      onClick={openInfoModal}>
         <FiEdit2 size={24} />
       </button>
     </Container>

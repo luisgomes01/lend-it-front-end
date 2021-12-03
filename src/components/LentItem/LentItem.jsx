@@ -1,3 +1,5 @@
+import { useLocation } from "react-router-dom";
+
 import { Container } from "./LentItem.js";
 import { IoClose } from "react-icons/io5";
 import { useLend } from "../../contexts/lendContext.js";
@@ -6,7 +8,7 @@ import ButtonSubmit from "../ButtonSubmit/ButtonSubmit.jsx";
 import { format } from "date-fns";
 
 import EditModal from "../Modals/EditModal/EditModal.jsx";
-import { useLocation } from "react-router-dom";
+
 
 export default function LentItem({
   id,
@@ -19,8 +21,7 @@ export default function LentItem({
   result_devolution,
 }) {
   const { removeLend } = useLend();
-  const location = useLocation();
-  const pathname = location.pathname;
+  const pathname = useLocation().pathname;
 
   return (
     <Container>
@@ -30,7 +31,7 @@ export default function LentItem({
             <h2>{name_obj}</h2>
           </div>
           <div className="icons-container">
-            <EditModal />
+            <EditModal id = {id}/>
             <button
               className="icon-button"
               onClick={() => removeLend(id, pathname)}
