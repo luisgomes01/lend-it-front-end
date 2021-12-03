@@ -143,57 +143,58 @@ export default function LendContextProvider({ children }) {
   }
 
   const findOneObject = async (id) => {
-    try{
-          const [response] = lends.filter(lent => {return lent.id === id})
-          console.log(response)
-          if(response){
-            setObject(response.item_emprestado);
-            setWhoLent(response.nome_donoObj);
-            setEmailWhoLent(response.contato_email_devolucao);
-            setCellphoneWhoLent(response.contato_celular_devolucao);
-            setLentDate(new Date(response.data_emprestimo));
-            if(response.data_devolucao){
-              setObjectReturnDate(response.data_devolucao);  
-            }
-          }
-          
-    } catch(err){
+    try {
+      const [response] = lends.filter((lent) => {
+        return lent.id === id;
+      });
+      console.log(response.id);
+      if (response) {
+        setObject(response.item_emprestado);
+        setWhoLent(response.nome_donoObj);
+        setEmailWhoLent(response.contato_email_devolucao);
+        setCellphoneWhoLent(response.contato_celular_devolucao);
+        setLentDate(new Date(response.data_emprestimo));
+        if (response.data_devolucao) {
+          setObjectReturnDate(response.data_devolucao);
+        }
+      }
+      return response.id;
+    } catch (err) {
       alert(
-        'Objeto não encontrado na base de dados, por favor, entre em contato com os administradores'
-        )
+        "Objeto não encontrado na base de dados, por favor, entre em contato com os administradores"
+      );
     }
-  }
+  };
 
   const updateItem = async (id, location) => {
-    try{
-      if(location === "/emprestado"){
-       await editBorrow(
+    try {
+      if (location === "/emprestado") {
+        await editBorrow(
           id,
           object,
-          whoLent, 
+          whoLent,
           cellphoneWhoLent,
           emailWhoLent,
-          lentDate, 
-          objectReturnDate,        
-        )
-          alert(object + ' atualizado com sucesso!!!')
+          lentDate,
+          objectReturnDate
+        );
+        alert(object + " atualizado com sucesso!!!");
       } else {
-
-      await editLent(
+        await editLent(
           id,
           object,
-          whoLent, 
+          whoLent,
           cellphoneWhoLent,
           emailWhoLent,
-          lentDate, 
-          objectReturnDate,        
-        )
-          alert(object + 'atualizado com sucesso!!!')
-      }  
-    } catch(err){
-      alert(object + ' não pode ser atualizado')
+          lentDate,
+          objectReturnDate
+        );
+        alert(object + "atualizado com sucesso!!!");
+      }
+    } catch (err) {
+      alert(object + " não pode ser atualizado");
     }
-  }
+  };
 
   return (
     <lendContext.Provider
@@ -220,7 +221,7 @@ export default function LendContextProvider({ children }) {
         createLend,
         createBorrowLend,
         updateItem,
-        findOneObject
+        findOneObject,
       }}
     >
       {children}

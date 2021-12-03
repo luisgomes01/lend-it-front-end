@@ -5,13 +5,13 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { pt } from "date-fns/esm/locale";
 import { MdClose } from "react-icons/md";
-import { FiEdit2 } from "react-icons/fi"; 
+import { FiEdit2 } from "react-icons/fi";
 
 import { Container } from "./EditModal";
 import ButtonSubmit from "../../ButtonSubmit/ButtonSubmit.jsx";
-import { useLend } from '../../../contexts/lendContext';
+import { useLend } from "../../../contexts/lendContext";
 
-export default function EditModal({id}) {
+export default function EditModal({ id }) {
   const location = useLocation().pathname;
 
   const [showModal, setShowModal] = useState(false);
@@ -19,27 +19,31 @@ export default function EditModal({id}) {
     setShowModal(true);
   };
 
-  const { object, setObject, 
-        lentDate, setLentDate, 
-        objectReturnDate, setObjectReturnDate, 
-        whoLent, setWhoLent, 
-        emailWhoLent, setEmailWhoLent, 
-        cellphoneWhoLent, setCellphoneWhoLent,
-        updateItem,
-        findOneObject
-        } = useLend();
-        
+  const {
+    object,
+    setObject,
+    lentDate,
+    setLentDate,
+    objectReturnDate,
+    setObjectReturnDate,
+    whoLent,
+    setWhoLent,
+    emailWhoLent,
+    setEmailWhoLent,
+    cellphoneWhoLent,
+    setCellphoneWhoLent,
+    updateItem,
+    findOneObject,
+  } = useLend();
+
   const onSubmit = (e) => {
     e.preventDefault();
     updateItem(id, location);
-  }
+  };
 
-  useEffect(() => {
-    const loadData = async() =>{
-      await findOneObject(id);
-    }
-    loadData();
-  }, [])
+  async function returnLendId() {
+    console.log(await findOneObject(id));
+  }
 
   return (
     <Container>
@@ -82,32 +86,32 @@ export default function EditModal({id}) {
                   onChange={(e) => setWhoLent(e.target.value)}
                   required
                 />
-                
+
                 {/* Data de Empréstimo */}
                 <label htmlFor="date-object-lend">Emprestado em:</label>
                 <DatePicker
-                    selected={lentDate}
-                    onChange={(date) => setLentDate(date)}
-                    locale={pt}
-                    showTimeSelect
-                    timeFormat="p"
-                    timeIntervals={15}
-                    dateFormat="Pp"
-                  />
+                  selected={lentDate}
+                  onChange={(date) => setLentDate(date)}
+                  locale={pt}
+                  showTimeSelect
+                  timeFormat="p"
+                  timeIntervals={15}
+                  dateFormat="Pp"
+                />
 
                 <label htmlFor="data-devolucao-objeto">
                   Será devolvido em:
                 </label>
 
                 <DatePicker
-                    selected={objectReturnDate}
-                    onChange={(date) => setObjectReturnDate(date)}
-                    locale={pt}
-                    showTimeSelect
-                    timeFormat="p"
-                    timeIntervals={15}
-                    dateFormat="Pp"
-                  />
+                  selected={objectReturnDate}
+                  onChange={(date) => setObjectReturnDate(date)}
+                  locale={pt}
+                  showTimeSelect
+                  timeFormat="p"
+                  timeIntervals={15}
+                  dateFormat="Pp"
+                />
               </div>
               <div className="right-modal-content">
                 {/* Contato - Email */}
@@ -143,9 +147,13 @@ export default function EditModal({id}) {
         </div>
       )}
 
-      <button 
-      className="icon-button" 
-      onClick={openInfoModal}>
+      <button
+        className="icon-button"
+        onClick={() => {
+          openInfoModal();
+          returnLendId(id);
+        }}
+      >
         <FiEdit2 size={24} />
       </button>
     </Container>
