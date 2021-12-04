@@ -39,6 +39,7 @@ export default function EditModal({ id }) {
   const onSubmit = (e) => {
     e.preventDefault();
     updateItem(id, location);
+    setShowModal(false);
   };
 
   async function returnLendId() {
@@ -74,7 +75,7 @@ export default function EditModal({ id }) {
               <div className="left-modal-content">
                 {/* Nome Responsável atual */}
                 <label htmlFor="object-name">
-                  {location.pathname === "/emprestei"
+                  {location === "/emprestei"
                     ? "Está com: "
                     : "Pertence a: "}
                 </label>
@@ -82,7 +83,6 @@ export default function EditModal({ id }) {
                   name="object-name"
                   type="text"
                   value={whoLent}
-                  placeholder="Digite nome do novo objeto..."
                   onChange={(e) => setWhoLent(e.target.value)}
                   required
                 />
@@ -120,7 +120,6 @@ export default function EditModal({ id }) {
                   name="email-quem-pegou"
                   type="email"
                   value={emailWhoLent}
-                  placeholder="Digite o e-mail de quem emprestou o novo objeto..."
                   onChange={(e) => {
                     setEmailWhoLent(e.target.value);
                   }}

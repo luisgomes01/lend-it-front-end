@@ -26,11 +26,10 @@ export default function BorrowModal() {
     cellphoneWhoLent,
     setCellphoneWhoLent,
     createLend,
+    openModal,
   } = useLend();
 
-  const openModal = () => {
-    setShowModal(true);
-  };
+  
 
   return (
     <Container>
@@ -48,12 +47,6 @@ export default function BorrowModal() {
                 data-dismiss="modal"
                 onClick={() => {
                   setShowModal(false);
-                  setObject("");
-                  setWhoLent("");
-                  setLentDate(new Date());
-                  setObjectReturnDate("");
-                  setEmailWhoLent("");
-                  setCellphoneWhoLent("");
                 }}
               >
                 <MdClose />

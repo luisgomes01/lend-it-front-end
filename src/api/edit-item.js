@@ -10,7 +10,7 @@ export const editLent = async (
   data_emprestimo,
   data_devolucao,
   ) => {
-  const response = await Api.put('/cedidos/', 
+  const response = await Api.put('/emprestimos/', 
       {
       id, 
       item_emprestado,

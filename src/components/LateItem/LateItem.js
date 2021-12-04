@@ -30,6 +30,20 @@ export const Container = styled.div`
       .icons-container {
         display: flex;
         align-items: center;
+        .modal-container {
+          color: #000;
+          border: solid 3px #E42900;
+          .button-cancel {
+            color: #E42900;
+          }
+          .save-button {
+            button{
+              background-color: #E42900;
+              color: #ffff;
+            }
+            
+          }
+        }
         button {
           background: none;
           border: none;
@@ -55,6 +69,7 @@ export const Container = styled.div`
     }
     .footer-container {
       margin-top: 10px;
+      
       button{
         background-color: #ffff;
         color: #000;

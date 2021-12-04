@@ -18,6 +18,7 @@ export const Container = styled.div`
     .modal-container {
       max-width: 800px;
       width: 100%;
+      height: 55%;
       background-color: #ffff;
       border: solid 3px #c4c4c4;
       border-radius: 1.5rem;
@@ -47,6 +48,7 @@ export const Container = styled.div`
 
           input {
             width: 90%;
+            padding-left: 3px;
             border: none;
             border-bottom: solid 1px #c4c4c4;
             font-size: 1.5rem;
@@ -54,7 +56,9 @@ export const Container = styled.div`
             font-family: "Titillium Web", sans-serif;
 
             :focus {
-              border: none;
+              border-top: none;
+              border-right: none;
+              border-left: none;
               outline: 0;
             }
           }
@@ -73,10 +77,10 @@ export const Container = styled.div`
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 0px 10px;
+          padding: 0px 40px;
 
           label {
-            margin-top: 1rem;
+            margin-top: 0.7rem;
             align-self: flex-start;
           }
 

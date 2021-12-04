@@ -18,6 +18,17 @@ export default function LendContextProvider({ children }) {
   const [emailWhoLent, setEmailWhoLent] = useState("");
   const [cellphoneWhoLent, setCellphoneWhoLent] = useState("");
 
+  const openModal = () => {
+    setShowModal(true);
+    //Setando campos para vazios no modal
+    setObject("");
+    setWhoLent("");
+    setLentDate(new Date());
+    setObjectReturnDate(null);
+    setEmailWhoLent("");
+    setCellphoneWhoLent("");
+  };
+
   const createLend = async (e) => {
     e.preventDefault();
     if (!handleInputs()) return;
@@ -41,14 +52,6 @@ export default function LendContextProvider({ children }) {
 
         //Fechando Modal depois do alerta
         setShowModal(false);
-
-        // Setando campos para vazios de novo
-        setObject("");
-        setWhoLent("");
-        setLentDate(new Date());
-        setObjectReturnDate(null);
-        setEmailWhoLent("");
-        setCellphoneWhoLent("");
       }
     } catch (error) {
       alert("Item não criado. Por favor, verifique os campos obrigatórios");
@@ -78,14 +81,6 @@ export default function LendContextProvider({ children }) {
 
         //Fechando Modal depois do alerta
         setShowModal(false);
-
-        // Setando campos para vazios de novo
-        setObject("");
-        setWhoLent("");
-        setLentDate(new Date());
-        setObjectReturnDate(null);
-        setEmailWhoLent("");
-        setCellphoneWhoLent("");
       }
     } catch (error) {
       alert("Item não criado. Por favor, verifique os campos obrigatórios");
@@ -147,18 +142,23 @@ export default function LendContextProvider({ children }) {
       const [response] = lends.filter((lent) => {
         return lent.id === id;
       });
-      console.log(response.id);
+      console.log(response);
       if (response) {
         setObject(response.item_emprestado);
-        setWhoLent(response.nome_donoObj);
+
+        if(response.nome_donoObj){
+          setWhoLent(response.nome_donoObj);
+        } else {
+          setWhoLent(response.nome_responsavel_atual);
+        }
+
         setEmailWhoLent(response.contato_email_devolucao);
         setCellphoneWhoLent(response.contato_celular_devolucao);
         setLentDate(new Date(response.data_emprestimo));
         if (response.data_devolucao) {
-          setObjectReturnDate(response.data_devolucao);
+          setObjectReturnDate(new Date(response.data_devolucao));
         }
       }
-      return response.id;
     } catch (err) {
       alert(
         "Objeto não encontrado na base de dados, por favor, entre em contato com os administradores"
@@ -167,6 +167,7 @@ export default function LendContextProvider({ children }) {
   };
 
   const updateItem = async (id, location) => {
+    console.log(objectReturnDate)
     try {
       if (location === "/emprestado") {
         await editBorrow(
@@ -178,8 +179,11 @@ export default function LendContextProvider({ children }) {
           lentDate,
           objectReturnDate
         );
+
         alert(object + " atualizado com sucesso!!!");
-      } else {
+        
+      } else if(location === "/emprestei"){
+        
         await editLent(
           id,
           object,
@@ -189,8 +193,11 @@ export default function LendContextProvider({ children }) {
           lentDate,
           objectReturnDate
         );
-        alert(object + "atualizado com sucesso!!!");
+
+        alert(object + " atualizado com sucesso!!!");
       }
+
+      
     } catch (err) {
       alert(object + " não pode ser atualizado");
     }
@@ -218,6 +225,7 @@ export default function LendContextProvider({ children }) {
         setCellphoneWhoLent,
         showModal,
         setShowModal,
+        openModal,
         createLend,
         createBorrowLend,
         updateItem,
