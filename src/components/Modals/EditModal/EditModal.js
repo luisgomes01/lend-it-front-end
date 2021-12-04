@@ -18,7 +18,6 @@ export const Container = styled.div`
     .modal-container {
       max-width: 800px;
       width: 100%;
-      height: 55%;
       background-color: #ffff;
       border: solid 3px #c4c4c4;
       border-radius: 1.5rem;
