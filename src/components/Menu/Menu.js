@@ -56,4 +56,9 @@ export const Container = styled.header`
       }
     }
   }
+  @media (min-width: 375px) {
+    #menu-container {
+      box-shadow: 0;
+    }
+  }
 `;
