@@ -21,7 +21,7 @@ export const WelcomePageStyle = styled.main`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin-top: 5rem;
+    margin-top: 4.5rem;
     background-image: url("${welcomeimg}");
     background-repeat: no-repeat;
     background-position: center;
@@ -110,6 +110,47 @@ export const WelcomePageStyle = styled.main`
         justify-content: center;
         width: 50%;
       }
+    }
+  }
+  @media (max-width: 375px) {
+    .nunca-esquece {
+      background-image: none;
+      text-align: center;
+      background-color: #095194;
+      .title {
+        color: #fff;
+      }
+      .acessar {
+        p {
+          color: #fff;
+        }
+      }
+    }
+    .right-content img {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .nunca-esquece {
+      background-size: 100%;
+    }
+  }
+  @media (max-width: 1200px) {
+    .nunca-esquece {
+      background-size: 85%;
+    }
+    .title {
+      margin-top: 3rem;
+      p {
+        font-size: 2rem;
+      }
+    }
+  }
+  @media (max-width: 1300px) {
+    .nunca-esquece {
+      height: 100vh;
+      background-size: 70%;
     }
   }
 `;
