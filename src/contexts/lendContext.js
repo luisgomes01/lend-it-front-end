@@ -2,7 +2,10 @@ import React, { createContext, useState, useContext } from "react";
 import { destroyBorrow, destroyLent } from "../api/delete-item.js";
 import { createBorrow, createLent } from "../api/create-item.js";
 import { editBorrow, editLent } from "../api/edit-item.js";
-import { giveBackItemBorrow, giveBackItemLent } from "../api/devolution-item.js";
+import {
+  giveBackItemBorrow,
+  giveBackItemLent,
+} from "../api/devolution-item.js";
 import api from "../api/index.js";
 const lendContext = createContext({});
 
@@ -147,7 +150,7 @@ export default function LendContextProvider({ children }) {
       if (response) {
         setObject(response.item_emprestado);
 
-        if(response.nome_donoObj){
+        if (response.nome_donoObj) {
           setWhoLent(response.nome_donoObj);
         } else {
           setWhoLent(response.nome_responsavel_atual);
@@ -168,7 +171,7 @@ export default function LendContextProvider({ children }) {
   };
 
   const updateItem = async (id, pathname) => {
-    console.log(objectReturnDate)
+    console.log(objectReturnDate);
     try {
       if (pathname === "/emprestado") {
         await editBorrow(
@@ -182,9 +185,7 @@ export default function LendContextProvider({ children }) {
         );
 
         alert(object + " atualizado com sucesso!!!");
-        
-      } else if(pathname === "/emprestei"){
-        
+      } else if (pathname === "/emprestei") {
         await editLent(
           id,
           object,
@@ -197,25 +198,23 @@ export default function LendContextProvider({ children }) {
 
         alert(object + " atualizado com sucesso!!!");
       }
-
-      
     } catch (err) {
       alert(object + " não pode ser atualizado");
     }
   };
 
-  async function giveBack (id, pathname) {
-    try{
+  async function giveBack(id, pathname) {
+    try {
       setLends(lends.filter((e) => e.id !== id));
       setLate(late.filter((e) => e.id !== id));
       if (pathname === "/emprestado") {
         await giveBackItemBorrow({ id });
-      } else if(pathname === "/emprestei"){
+      } else if (pathname === "/emprestei") {
         await giveBackItemLent({ id });
       }
 
       alert("Item devolvido com sucesso!!!");
-    } catch (err){
+    } catch (err) {
       alert(err);
     }
   }
@@ -247,7 +246,7 @@ export default function LendContextProvider({ children }) {
         createBorrowLend,
         updateItem,
         findOneObject,
-        giveBack
+        giveBack,
       }}
     >
       {children}

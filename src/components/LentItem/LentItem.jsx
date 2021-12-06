@@ -9,7 +9,6 @@ import { format } from "date-fns";
 
 import EditModal from "../Modals/EditModal/EditModal.jsx";
 
-
 export default function LentItem({
   id,
   name_obj,
@@ -31,7 +30,7 @@ export default function LentItem({
             <h2>{name_obj}</h2>
           </div>
           <div className="icons-container">
-            <EditModal id = {id}/>
+            <EditModal id={id} />
             <button
               className="icon-button"
               onClick={() => removeLend(id, pathname)}
@@ -53,7 +52,8 @@ export default function LentItem({
             <div className="last-line">
               {!date_devolution ? (
                 <p>
-                  Emprestado em: <span>{format(new Date(date_lent), "dd/MM/yyyy")}</span>
+                  Emprestado em:{" "}
+                  <span>{format(new Date(date_lent), "dd/MM/yyyy")}</span>
                 </p>
               ) : (
                 <p>
@@ -64,7 +64,9 @@ export default function LentItem({
             </div>
           </div>
           <div className="button-container">
-            <ButtonSubmit>Devolvido</ButtonSubmit>
+            <ButtonSubmit submit={() => giveBack(id, pathname)}>
+              Devolvido
+            </ButtonSubmit>
           </div>
         </div>
       </div>
