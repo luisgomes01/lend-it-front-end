@@ -17,7 +17,7 @@ function LateItem({
   date_devolution,
   result_devolution,
 }) {
-  const { removeLend } = useLend();
+  const { removeLend, giveBack } = useLend();
   const pathname = useLocation().pathname;
   return (
     <Container>

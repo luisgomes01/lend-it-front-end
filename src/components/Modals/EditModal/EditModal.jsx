@@ -12,7 +12,7 @@ import ButtonSubmit from "../../ButtonSubmit/ButtonSubmit.jsx";
 import { useLend } from "../../../contexts/lendContext";
 
 export default function EditModal({ id }) {
-  const location = useLocation().pathname;
+  const pathname = useLocation().pathname;
 
   const [showModal, setShowModal] = useState(false);
   const openInfoModal = () => {
@@ -38,7 +38,7 @@ export default function EditModal({ id }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    updateItem(id, location);
+    updateItem(id, pathname);
     setShowModal(false);
   };
 
@@ -75,7 +75,7 @@ export default function EditModal({ id }) {
               <div className="left-modal-content">
                 {/* Nome Responsável atual */}
                 <label htmlFor="object-name">
-                  {location === "/emprestei"
+                  {pathname === "/emprestei"
                     ? "Está com: "
                     : "Pertence a: "}
                 </label>

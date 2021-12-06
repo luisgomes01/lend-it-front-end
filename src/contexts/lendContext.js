@@ -1,7 +1,8 @@
 import React, { createContext, useState, useContext } from "react";
-import { destroyBorrow, destroyLent } from "../api/delete.js";
+import { destroyBorrow, destroyLent } from "../api/delete-item.js";
 import { createBorrow, createLent } from "../api/create-item.js";
 import { editBorrow, editLent } from "../api/edit-item.js";
+import { giveBackItemBorrow, giveBackItemLent } from "../api/devolution-item.js";
 import api from "../api/index.js";
 const lendContext = createContext({});
 
@@ -166,10 +167,10 @@ export default function LendContextProvider({ children }) {
     }
   };
 
-  const updateItem = async (id, location) => {
+  const updateItem = async (id, pathname) => {
     console.log(objectReturnDate)
     try {
-      if (location === "/emprestado") {
+      if (pathname === "/emprestado") {
         await editBorrow(
           id,
           object,
@@ -182,7 +183,7 @@ export default function LendContextProvider({ children }) {
 
         alert(object + " atualizado com sucesso!!!");
         
-      } else if(location === "/emprestei"){
+      } else if(pathname === "/emprestei"){
         
         await editLent(
           id,
@@ -202,6 +203,22 @@ export default function LendContextProvider({ children }) {
       alert(object + " não pode ser atualizado");
     }
   };
+
+  async function giveBack (id, pathname) {
+    try{
+      setLends(lends.filter((e) => e.id !== id));
+      setLate(late.filter((e) => e.id !== id));
+      if (pathname === "/emprestado") {
+        await giveBackItemBorrow({ id });
+      } else if(pathname === "/emprestei"){
+        await giveBackItemLent({ id });
+      }
+
+      alert("Item devolvido com sucesso!!!");
+    } catch (err){
+      alert(err);
+    }
+  }
 
   return (
     <lendContext.Provider
@@ -230,6 +247,7 @@ export default function LendContextProvider({ children }) {
         createBorrowLend,
         updateItem,
         findOneObject,
+        giveBack
       }}
     >
       {children}
