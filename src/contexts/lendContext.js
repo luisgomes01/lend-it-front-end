@@ -2,7 +2,10 @@ import React, { createContext, useState, useContext } from "react";
 import { destroyBorrow, destroyLent } from "../api/delete-item.js";
 import { createBorrow, createLent } from "../api/create-item.js";
 import { editBorrow, editLent } from "../api/edit-item.js";
-import { giveBackItemBorrow, giveBackItemLent } from "../api/devolution-item.js";
+import {
+  giveBackItemBorrow,
+  giveBackItemLent,
+} from "../api/devolution-item.js";
 
 import sorts from "../utils/sortFunctions.js";
 
@@ -180,8 +183,8 @@ export default function LendContextProvider({ children }) {
           lentDate,
           objectReturnDate
         );
-
         alert(object + " atualizado com sucesso!!!");
+        window.location.reload();
       } else if (pathname === "/emprestei") {
         await editLent(
           id,
@@ -194,12 +197,12 @@ export default function LendContextProvider({ children }) {
         );
 
         alert(object + " atualizado com sucesso!!!");
+        window.location.reload();
       }
     } catch (err) {
       alert(object + " não pode ser atualizado");
     }
   };
-
 
   async function giveBack(id, pathname) {
     try {
@@ -217,17 +220,17 @@ export default function LendContextProvider({ children }) {
     }
   }
 
-  async function sortLends(value){
-    if(value === "novo ao antigo"){
-        const sortOld = sorts.oldest(lends); 
-        console.log(sortOld) 
-        setLends(sortOld)
-    } else if (value === "antigo ao novo"){
-        const sortNew = sorts.newst(lends);
-        console.log(sortNew)   
-        setLends(sortNew)
+  async function sortLends(value) {
+    if (value === "novo ao antigo") {
+      const sortOld = sorts.oldest(lends);
+      console.log(sortOld);
+      setLends(sortOld);
+    } else if (value === "antigo ao novo") {
+      const sortNew = sorts.newst(lends);
+      console.log(sortNew);
+      setLends(sortNew);
     }
-}
+  }
 
   return (
     <lendContext.Provider
@@ -257,7 +260,7 @@ export default function LendContextProvider({ children }) {
         updateItem,
         findOneObject,
         giveBack,
-        sortLends
+        sortLends,
       }}
     >
       {children}

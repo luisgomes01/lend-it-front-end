@@ -18,7 +18,7 @@ export default function ListLentItemLent() {
       }
     }
     fetchData();
-  }, [setLends, setLate, lends]);
+  }, [setLends, setLate]);
 
   if (lends.length === 0) {
     return <EmptyState />;
