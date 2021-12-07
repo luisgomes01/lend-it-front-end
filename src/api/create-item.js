@@ -37,7 +37,6 @@ export const createLent = async (
 
     const id_usuario_donoObj = localStorage.getItem("@lendit/user_id");
     const resultado_devolucao = 0;
-    console.log(contato_email_devolucao);
     const response = await Api.post('/emprestimos/', 
       {
         id_usuario_donoObj,

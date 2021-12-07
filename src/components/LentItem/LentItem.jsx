@@ -31,6 +31,7 @@ export default function LentItem({
           </div>
           <div className="icons-container">
             <EditModal id={id} />
+            
             <button
               className="icon-button"
               onClick={() => removeLend(id, pathname)}

@@ -4,7 +4,7 @@ import ListLentItemLent from "../../components/ListComponents/ListLent/ListLentI
 import ListLateItemLent from "../../components/ListComponents/ListLent/ListLateItemLent.jsx";
 import LendModal from "../../components/Modals/LendPageModal.jsx";
 import { Container } from "./Lent.js";
-
+import SortDropDown from "../../components/SortDropDown/SortDropDown.jsx";
 export default function Lent() {
   return (
     <Container>
@@ -22,6 +22,7 @@ export default function Lent() {
         <div className="right-content">
           <div className="right-content-header">
             <SubTitle>LISTA DE EMPRÉSTIMOS</SubTitle>
+            <SortDropDown/>
           </div>
           <ListLentItemLent />
         </div>

@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { format } from "date-fns";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { pt } from "date-fns/esm/locale";
@@ -43,7 +42,7 @@ export default function EditModal({ id }) {
   };
 
   async function returnLendId() {
-    console.log(await findOneObject(id));
+    await findOneObject(id);
   }
 
   return (

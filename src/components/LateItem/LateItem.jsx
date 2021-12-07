@@ -25,9 +25,7 @@ function LateItem({
         <div className="header-container">
           <h2>{name_obj}</h2>
           <div className="icons-container">
-            <button>
               <EditModal id = {id}/>
-            </button>
             <button onClick={() => removeLend(id, pathname)}>
               <IoClose size={34} />
             </button>
@@ -46,7 +44,7 @@ function LateItem({
           </p>
         </div>
         <div className="footer-container">
-          <ButtonSubmit>Devolvido</ButtonSubmit>
+          <ButtonSubmit submit={() => giveBack(id, pathname)}>Devolvido</ButtonSubmit>
         </div>
       </div>
     </Container>

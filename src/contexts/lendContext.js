@@ -2,11 +2,10 @@ import React, { createContext, useState, useContext } from "react";
 import { destroyBorrow, destroyLent } from "../api/delete-item.js";
 import { createBorrow, createLent } from "../api/create-item.js";
 import { editBorrow, editLent } from "../api/edit-item.js";
-import {
-  giveBackItemBorrow,
-  giveBackItemLent,
-} from "../api/devolution-item.js";
-import api from "../api/index.js";
+import { giveBackItemBorrow, giveBackItemLent } from "../api/devolution-item.js";
+
+import sorts from "../utils/sortFunctions.js";
+
 const lendContext = createContext({});
 
 export default function LendContextProvider({ children }) {
@@ -146,7 +145,6 @@ export default function LendContextProvider({ children }) {
       const [response] = lends.filter((lent) => {
         return lent.id === id;
       });
-      console.log(response);
       if (response) {
         setObject(response.item_emprestado);
 
@@ -171,7 +169,6 @@ export default function LendContextProvider({ children }) {
   };
 
   const updateItem = async (id, pathname) => {
-    console.log(objectReturnDate);
     try {
       if (pathname === "/emprestado") {
         await editBorrow(
@@ -203,6 +200,7 @@ export default function LendContextProvider({ children }) {
     }
   };
 
+
   async function giveBack(id, pathname) {
     try {
       setLends(lends.filter((e) => e.id !== id));
@@ -218,6 +216,18 @@ export default function LendContextProvider({ children }) {
       alert(err);
     }
   }
+
+  async function sortLends(value){
+    if(value === "novo ao antigo"){
+        const sortOld = sorts.oldest(lends); 
+        console.log(sortOld) 
+        setLends(sortOld)
+    } else if (value === "antigo ao novo"){
+        const sortNew = sorts.newst(lends);
+        console.log(sortNew)   
+        setLends(sortNew)
+    }
+}
 
   return (
     <lendContext.Provider
@@ -247,6 +257,7 @@ export default function LendContextProvider({ children }) {
         updateItem,
         findOneObject,
         giveBack,
+        sortLends
       }}
     >
       {children}
