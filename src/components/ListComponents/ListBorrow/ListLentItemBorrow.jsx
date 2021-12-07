@@ -18,7 +18,7 @@ function ListLentItemBorrow() {
       }
     }
     fetchData();
-  }, [setLends, setLate]);
+  }, [setLends, setLate, lends]);
 
   if (lends.length === 0) {
     return <EmptyState />;

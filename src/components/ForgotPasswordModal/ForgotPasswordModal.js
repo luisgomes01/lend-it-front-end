@@ -13,7 +13,7 @@ export const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.9);
 
     .modal-content {
-      margin-top: 20rem;
+      margin-top: 20px;
       padding: 10px;
       max-width: 500px;
       width: 100%;

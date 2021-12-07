@@ -16,6 +16,7 @@ export default function Lent() {
         <div className="left-content">
           <div className="left-content-header">
             <SubTitle>DEVOLUÇÕES ATRASADAS</SubTitle>
+            <SortDropDown/>
           </div>
           <ListLateItemLent />
         </div>

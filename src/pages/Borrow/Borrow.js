@@ -34,6 +34,7 @@ export const Container = styled.div`
       .right-content-header {
         display: flex;
         align-items: center;
+        flex-direction: column;
       }
     }
 
